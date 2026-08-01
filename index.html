@@ -3,59 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سایت احسان</title>
+  <title>دنیای سگ‌ها 🐶</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background: #fff4e6;
+      color: #333;
       text-align: center;
     }
 
     header {
-      background: #222;
+      background: #7a4b2a;
       color: white;
-      padding: 60px 20px;
+      padding: 55px 20px;
+    }
+
+    h1 {
+      font-size: 42px;
     }
 
     main {
-      padding: 40px 20px;
+      max-width: 850px;
+      margin: auto;
+      padding: 35px 20px;
     }
 
-    .box {
-      max-width: 600px;
-      margin: auto;
-      padding: 25px;
+    .card {
       background: white;
-      border-radius: 15px;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px #0002;
+    }
+
+    .dog {
+      font-size: 80px;
     }
 
     button {
-      padding: 12px 22px;
+      background: #7a4b2a;
+      color: white;
       border: none;
+      padding: 13px 25px;
       border-radius: 10px;
+      font-size: 17px;
       cursor: pointer;
-      font-size: 16px;
     }
   </style>
 </head>
 
 <body>
+
   <header>
-    <h1>سلام، به سایت احسان خوش آمدید 👋</h1>
-    <p>این اولین سایت من است</p>
+    <div class="dog">🐶</div>
+    <h1>دنیای سگ‌ها</h1>
+    <p>همه‌چیز درباره دوستان وفادار ما</p>
   </header>
 
   <main>
-    <div class="box">
-      <h2>درباره سایت</h2>
-      <p>این سایت با HTML و GitHub Pages ساخته شده است.</p>
 
-      <button onclick="alert('سلام احسان 😄')">
-        کلیک کن
+    <div class="card">
+      <h2>سگ‌ها چه حیواناتی هستند؟</h2>
+      <p>
+        سگ‌ها حیواناتی باهوش، اجتماعی و وفادار هستند و هزاران سال کنار انسان‌ها زندگی کرده‌اند.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>چند نکته درباره سگ‌ها 🐾</h2>
+      <p>🐕 سگ‌ها حس بویایی بسیار قوی دارند.</p>
+      <p>🦴 بازی و فعالیت برای سلامت آن‌ها مهم است.</p>
+      <p>❤️ مراقبت و مهربانی باعث می‌شود سگ‌ها احساس امنیت کنند.</p>
+    </div>
+
+    <div class="card">
+      <h2>سگ‌ها را دوست داری؟</h2>
+      <button onclick="alert('هاپ هاپ! 🐶🐾')">
+        بله! 🐶
       </button>
     </div>
+
   </main>
+
 </body>
 </html>
