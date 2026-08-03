@@ -25,20 +25,17 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
-    /* منوی شیشه‌ای شناور */
     nav {
       position: sticky;
       top: 15px;
       z-index: 1000;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      max-width: 750px;
+      max-width: 800px;
       margin: 0 auto 30px auto;
       padding: 10px 15px;
       border-radius: 50px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -90,24 +87,23 @@
       transition: all 0.3s ease;
     }
 
-    .btn-dog {
-      background: linear-gradient(135deg, #8b4513 0%, #5c2c06 100%);
-      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
-    }
-
-    .btn-cat {
-      background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
-      box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3);
-    }
-
+    .btn-dog { background: linear-gradient(135deg, #8b4513 0%, #5c2c06 100%); }
+    .btn-cat { background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%); }
     .buttons a:hover { transform: translateY(-3px); }
 
-    .quiz-box, .fact-box {
+    .box-style {
       background: #fdf8f5;
       border-right: 4px solid #6b3e2e;
-      padding: 15px;
+      padding: 20px;
       border-radius: 12px;
       margin-top: 15px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 8px 0;
     }
 
     .back-to-top {
@@ -135,90 +131,69 @@
 
   <header id="top">
     <nav translate="no">
-      <a href="index.html">🏠 صفحه اصلی</a>
-      <a href="dogs.html">🐶 دنیای سگ‌ها</a>
-      <a href="cats.html">🐱 دنیای گربه‌ها</a>
-      <a href="#quiz">🧩 تست انتخابی</a>
+      <a href="index.html">🏠 اصلی</a>
+      <a href="dogs.html">🐶 سگ‌ها</a>
+      <a href="cats.html">🐱 گربه‌ها</a>
+      <a href="#name-gen">🎨 پیشنهاد اسم</a>
+      <a href="#checklist">✅ چک‌لیست خرید</a>
       <a href="#about">ℹ️ درباره ما</a>
     </nav>
     <div class="animals">🐶🐱</div>
     <h1>دنیای سگ و گربه</h1>
-    <p>آشنایی با حیوانات دوست‌داشتنی، نژادها و روش نگهداری از آن‌ها 🐾</p>
+    <p>آشنایی با حیوانات دوست‌داشتنی، ابزارهای سرگرم‌کننده و راهنمای نگهداری 🐾</p>
   </header>
 
   <main>
 
     <div class="card">
       <h2>به دنیای سگ و گربه خوش آمدید! 🐶🐱</h2>
-      <p>
-        این سایت برای افرادی ساخته شده است که دوست دارند اطلاعات بیشتری
-        درباره سگ‌ها و گربه‌ها یاد بگیرند. در اینجا تلاش می‌کنیم مطالب را
-        به زبان ساده و مرتب توضیح دهیم تا همه بتوانند با ویژگی‌ها و
-        نیازهای این حیوانات آشنا شوند.
-      </p>
-      <p>
-        سگ‌ها و گربه‌ها هرکدام رفتار، ویژگی‌ها و نیازهای مخصوص خود را
-        دارند. نگهداری از یک حیوان فقط بازی کردن یا غذا دادن نیست؛
-        مسئولیت‌پذیری، مراقبت، توجه و فراهم کردن محیط امن نیز اهمیت زیادی
-        دارد.
-      </p>
+      <p>این سایت مرجعی ساده و مدرن برای یادگیری ویژگی‌های سگ‌ها و گربه‌ها، انتخاب اسم، استفاده از چک‌لیست خرید و محاسبات سن حیوانات است.</p>
     </div>
 
-    <!-- بخش درباره ما اضافه شده -->
+    <!-- بخش پیشنهاد اسم هوشمند -->
+    <div class="card" id="name-gen">
+      <h2>🎨 پیشنهاددهنده هوشمند اسم حیوان خانگی</h2>
+      <div class="box-style" style="text-align: center;">
+        <p>نوع حیوان و جنسیت را انتخاب کنید تا پیشنهادهای شیک دریافت کنید:</p>
+        <select id="petType" style="padding: 10px; border-radius: 8px; margin: 5px;">
+          <option value="dog">سگ 🐶</option>
+          <option value="cat">گربه 🐱</option>
+        </select>
+        <select id="petGender" style="padding: 10px; border-radius: 8px; margin: 5px;">
+          <option value="male">پسر ♂️</option>
+          <option value="female">دختر ♀️</option>
+        </select>
+        <br><br>
+        <button onclick="generateName()" style="background: #6b3e2e; color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: bold; cursor: pointer;">پیشنهاد اسم 🎲</button>
+        <h3 id="nameResult" style="color: #6b3e2e; margin-top: 15px;"></h3>
+      </div>
+    </div>
+
+    <!-- بخش چک‌لیست خرید وسایل -->
+    <div class="card" id="checklist">
+      <h2>✅ چک‌لیست تعاملی وسایل ضروری حیوان خانگی</h2>
+      <p>قبل از ورود حیوان به خانه، مطمئن شوید وسایل زیر را آماده کرده‌اید:</p>
+      <div class="box-style">
+        <div class="checklist-item"><input type="checkbox" id="c1"> <label for="c1">🍲 ظرف آب و غذای استیل یا سرامیکی</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c2"> <label for="c2">🛏️ جای خواب نرم و قابل شست‌وشو</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c3"> <label for="c3">🪮 برس و شانه مخصوص موها</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c4"> <label for="c4">📦 باکس یا کیف مخصوص حمل و نقل</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c5"> <label for="c5">🧻 ظرف خاک و خاک مخصوص (برای گربه‌ها) / قلاده (برای سگ‌ها)</label></div>
+        <div class="checklist-item"><input type="checkbox" id="c6"> <label for="c6">🎾 اسباب‌بازی‌های سرگرم‌کننده و ایمن</label></div>
+      </div>
+    </div>
+
+    <!-- بخش درباره ما -->
     <div class="card" id="about">
       <h2>درباره ما ℹ️</h2>
-      <p>
-        «دنیای سگ و گربه» یک سایت آموزشی درباره حیوانات خانگی است.
-        هدف ما این است که اطلاعات مفید و قابل فهمی درباره سگ‌ها و
-        گربه‌ها در یک مکان جمع کنیم.
-      </p>
-      <p>
-        ما تلاش می‌کنیم مطالب سایت مرتب و ساده باشند تا بازدیدکنندگان
-        بتوانند راحت‌تر موضوع مورد علاقه خود را پیدا کنند.
-      </p>
-      <p>
-        این سایت برای یادگیری و آشنایی بهتر با حیوانات ساخته شده است و
-        به کاربران کمک می‌کند قبل از نگهداری از یک حیوان، درباره نیازها
-        و مسئولیت‌های آن اطلاعات بیشتری داشته باشند.
-      </p>
-    </div>
-
-    <div class="card" id="quiz">
-      <h2>🧩 تست هوشمند: سگ برای شما مناسب‌تر است یا گربه؟</h2>
-      <div class="quiz-box">
-        <label>۱. چقدر در روز وقت برای پیاده‌روی و فعالیت دارید؟</label><br>
-        <select id="q1" style="width: 100%; padding: 8px; margin: 10px 0; border-radius: 8px;">
-          <option value="dog">بیشتر از یک ساعت در روز</option>
-          <option value="cat">کمتر از ۳۰ دقیقه یا ترجیح می‌دهم در خانه باشم</option>
-        </select>
-
-        <label>۲. محیط زندگی شما چگونه است؟</label><br>
-        <select id="q2" style="width: 100%; padding: 8px; margin: 10px 0; border-radius: 8px;">
-          <option value="dog">خانه ویلایی یا دارای حیاط</option>
-          <option value="cat">آپارتمان یا فضای کوچک</option>
-        </select>
-
-        <button onclick="checkQuiz()" style="background: #6b3e2e; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; width: 100%; font-weight: bold;">مشاهده نتیجه تست</button>
-        <p id="quiz-result" style="text-align: center; font-weight: bold; margin-top: 15px; color: #6b3e2e;"></p>
-      </div>
+      <p>«دنیای سگ و گربه» یک وب‌سایت آموزشی و کاربردی است که برای کمک به سرپرستان و علاقه‌مندان حیوانات خانگی طراحی شده است تا با مسئولیت‌پذیری بیشتری از حیوانات نگهداری کنند.</p>
     </div>
 
     <div class="card">
-      <h2>💡 آیا می‌دانستید؟ (دانستنی‌های عجیب)</h2>
-      <div class="fact-box">
-        <p>🐾 <strong>اثر دماغ:</strong> اثر بینی هر سگ مانند اثر انگشت انسان کاملاً منحصربه‌فرد است!</p>
-        <p>🐾 <strong>حافظه گربه‌ها:</strong> گربه‌ها می‌توانند تا ۷۰٪ از روز را در خواب بگذرانند و حس شنوایی آن‌ها ۲ برابر قوی‌تر از انسان است.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>از کجا شروع کنیم؟ 🐾</h2>
-      <p style="text-align: center;">
-        برای دیدن مطالب، یکی از بخش‌های زیر را انتخاب کن:
-      </p>
+      <h2>ورود به بخش اختصاصی 🐾</h2>
       <div class="buttons">
-        <a href="dogs.html" class="btn-dog">🐶 ورود به دنیای سگ‌ها</a>
-        <a href="cats.html" class="btn-cat">🐱 ورود به دنیای گربه‌ها</a>
+        <a href="dogs.html" class="btn-dog">🐶 دنیای سگ‌ها</a>
+        <a href="cats.html" class="btn-cat">🐱 دنیای گربه‌ها</a>
       </div>
     </div>
 
@@ -231,18 +206,23 @@
   </footer>
 
   <script>
-    function checkQuiz() {
-      const q1 = document.getElementById('q1').value;
-      const q2 = document.getElementById('q2').value;
-      const result = document.getElementById('quiz-result');
+    const dogMaleNames = ["لئو", "توفی", "بفی", "ژوپیتر", "چارلی", "بندر", "تدی"];
+    const dogFemaleNames = ["لوسی", "بلا", "کوکو", "فندق", "مایا", "بانی", "دیزی"];
+    const catMaleNames = ["میلو", "سیمبا", "برفی", "پشمک", "فیگارو", "لئو", "اسکار"];
+    const catFemaleNames = ["لونا", "مولی", "پیشی", "عسل", "پنی", "نبات", "میا"];
 
-      if (q1 === 'dog' && q2 === 'dog') {
-        result.innerText = "نتیجه: سگ‌ها عالی‌ترین همدم برای سبک زندگی پرانرژی شما هستند! 🐶";
-      } else if (q1 === 'cat' && q2 === 'cat') {
-        result.innerText = "نتیجه: گربه‌ها بهترین انتخاب برای محیط آرام و آپارتمانی شما هستند! 🐱";
-      } else {
-        result.innerText = "نتیجه: شما می‌توانید هم با گربه‌های آرام و هم با نژادهای کوچک سگ زندگی خوبی داشته باشید! 🐶🐱";
-      }
+    function generateName() {
+      const type = document.getElementById('petType').value;
+      const gender = document.getElementById('petGender').value;
+      let names = [];
+
+      if (type === 'dog' && gender === 'male') names = dogMaleNames;
+      else if (type === 'dog' && gender === 'female') names = dogFemaleNames;
+      else if (type === 'cat' && gender === 'male') names = catMaleNames;
+      else names = catFemaleNames;
+
+      const randomName = names[Math.floor(Math.random() * names.length)];
+      document.getElementById('nameResult').innerText = `اسم پیشنهادی: « ${randomName} » ✨`;
     }
   </script>
 
