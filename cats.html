@@ -7,17 +7,45 @@
   <title>دنیای گربه‌ها 🐱</title>
 
   <style>
+    :root {
+      --bg-color: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%);
+      --text-color: #2d3748;
+      --card-bg: white;
+      --header-bg: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
+      --calc-bg: #fbf5ff;
+      --calc-border: #e9d5ff;
+      --border-color: rgba(0, 0, 0, 0.05);
+      --nav-bg: rgba(255, 255, 255, 0.85);
+      --nav-text: #4a5568;
+      --table-border: #edf2f7;
+    }
+
+    /* استایل تم تاریک */
+    body.dark-mode {
+      --bg-color: linear-gradient(135deg, #121212 0%, #1a1625 100%);
+      --text-color: #e2e8f0;
+      --card-bg: #1e1e2d;
+      --header-bg: linear-gradient(135deg, #321052 0%, #1e0b3d 100%);
+      --calc-bg: #291e36;
+      --calc-border: #4a2d68;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --nav-bg: rgba(30, 30, 45, 0.85);
+      --nav-text: #cbd5e1;
+      --table-border: #2d3748;
+    }
+
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%);
-      color: #2d3748;
+      background: var(--bg-color);
+      color: var(--text-color);
       text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     header {
-      background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
+      background: var(--header-bg);
       color: white;
       padding: 50px 20px 60px;
       border-bottom-left-radius: 30px;
@@ -29,21 +57,22 @@
       position: sticky;
       top: 15px;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.85);
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
-      max-width: 750px;
+      max-width: 800px;
       margin: 0 auto 30px auto;
       padding: 10px 15px;
       border-radius: 50px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       gap: 8px;
     }
 
     nav a {
-      color: #4a5568;
+      color: var(--nav-text);
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
@@ -54,31 +83,46 @@
 
     nav a:hover { background: #6b21a8; color: white; }
 
+    .theme-toggle-btn {
+      background: #6b21a8;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+    .theme-toggle-btn:hover { transform: scale(1.05); }
+
     main { max-width: 850px; margin: auto; padding: 20px; }
 
     .card {
-      background: white;
+      background: var(--card-bg);
       margin: 30px 0;
       padding: 30px;
       border-radius: 24px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
       text-align: right;
       line-height: 2;
+      transition: background 0.3s ease;
     }
 
-    .card h2, .card h3 { text-align: center; color: #6b21a8; }
+    .card h2, .card h3 { text-align: center; color: #a855f7; }
 
     .calc-box {
-      background: #fbf5ff;
+      background: var(--calc-bg);
       padding: 20px;
       border-radius: 16px;
-      border: 1px solid #e9d5ff;
+      border: 1px solid var(--calc-border);
       text-align: center;
     }
 
     .table-container { overflow-x: auto; border-radius: 12px; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    th, td { border: 1px solid #edf2f7; padding: 12px; text-align: center; }
+    th, td { border: 1px solid var(--table-border); padding: 12px; text-align: center; }
     th { background-color: #6b21a8; color: white; }
 
     form { display: flex; flex-direction: column; gap: 15px; }
@@ -117,13 +161,12 @@
       font-size: 20px;
     }
 
-    footer { background: #2d3748; color: white; padding: 25px; margin-top: 50px; }
+    footer { background: #1a202c; color: white; padding: 25px; margin-top: 50px; }
   </style>
 </head>
 
 <body>
 
-  <!-- منوی اصلی بالا کامل -->
   <header id="top">
     <nav translate="no">
       <a href="index.html">🏠 صفحه اصلی</a>
@@ -133,6 +176,7 @@
       <a href="#care">🏠 نگهداری</a>
       <a href="#food">🍲 غذا دادن</a>
       <a href="#contact">✉️ تماس با ما</a>
+      <button class="theme-toggle-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
     </nav>
 
     <div style="font-size: 80px;">🐱</div>
@@ -153,11 +197,10 @@
         <label>سن گربه خود را به سال وارد کنید:</label>
         <input type="number" id="catAge" placeholder="مثلاً: 2" min="1" max="25" style="width: 100%; margin: 10px 0;">
         <button onclick="calculateCatAge()" style="width: 100%;">محاسبه سن انسانی</button>
-        <h3 id="catAgeResult" style="color: #6b21a8; margin-top: 15px;"></h3>
+        <h3 id="catAgeResult" style="color: #a855f7; margin-top: 15px;"></h3>
       </div>
     </div>
 
-    <!-- بخش کامل نژادهای گربه -->
     <div class="card" id="breeds">
       <h2>آشنایی با نژادهای گوناگون گربه‌ها 🐈</h2>
 
@@ -251,6 +294,10 @@
   </footer>
 
   <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
     function calculateCatAge() {
       const age = document.getElementById('catAge').value;
       const result = document.getElementById('catAgeResult');
