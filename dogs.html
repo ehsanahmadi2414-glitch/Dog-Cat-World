@@ -129,7 +129,6 @@
       <a href="#about">🐶 درباره سگ‌ها</a>
       <a href="#breeds">🐕 نژادها</a>
       <a href="#calc">🧮 محاسبه سن</a>
-      <a href="#care">🏠 نگهداری</a>
       <a href="#food">🍲 غذا دادن</a>
       <a href="#contact">✉️ تماس با ما</a>
     </nav>
@@ -143,8 +142,7 @@
 
     <div class="card" id="about">
       <h2>سگ‌ها چه حیواناتی هستند؟ 🐶</h2>
-      <p>سگ‌ها حیواناتی باهوش، اجتماعی و وفادار هستند و هزاران سال کنار انسان‌ها زندگی کرده‌اند. آن‌ها در اندازه‌ها، رنگ‌ها، شکل‌ها و رفتارهای بسیار متنوعی دیده می‌شوند.</p>
-      <p>بعضی سگ‌ها کوچک و آرام هستند، بعضی بسیار پرانرژی‌اند و بعضی دیگر برای انجام کارهایی مانند کمک به انسان، نگهبانی، جست‌وجو یا راهنمایی آموزش می‌بینند.</p>
+      <p>سگ‌ها حیواناتی باهوش، اجتماعی و وفادار هستند و هزاران سال کنار انسان‌ها زندگی کرده‌اند.</p>
     </div>
 
     <div class="card" id="calc">
@@ -159,17 +157,12 @@
 
     <div class="card" id="breeds">
       <h2>راهنمای آشنایی با نژادهای گوناگون 🐶</h2>
-      <p>نژاد یک سگ می‌تواند اطلاعاتی درباره اندازه، ظاهر و بعضی ویژگی‌های معمول آن بدهد، اما رفتار هر سگ به تربیت و محیط زندگی او نیز بستگی دارد.</p>
+      <p>نام نژاد مورد نظر خود را در کادر زیر جستجو کنید:</p>
+      
+      <input type="text" id="searchDog" onkeyup="filterDogTable()" placeholder="🔍 جستجوی نژاد (مثلا: هاسکی، پامرانین...)" style="width: 100%; margin-bottom: 15px;">
 
-      <h3>سگ‌های کوچک 🐕</h3>
-      <p>نژادهایی مانند شیواوا، پامرانین، پاگ، شیتزو، مالتیز و پودل در گروه سگ‌های کوچک شناخته می‌شوند.</p>
-
-      <h3>سگ‌های متوسط و بزرگ 🦮</h3>
-      <p>گلدن رتریور، لابرادور، ژرمن شپرد و هاسکی از نژادهای شناخته‌شده بزرگ و پرانرژی هستند.</p>
-
-      <h3>جدول خلاصه ویژگی نژادها 📊</h3>
       <div class="table-container">
-        <table>
+        <table id="dogTable">
           <thead>
             <tr>
               <th>نژاد</th>
@@ -179,49 +172,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>پامرانین</td>
-              <td>کوچک</td>
-              <td>متوسط</td>
-              <td>کم (مناسب آپارتمان)</td>
-            </tr>
-            <tr>
-              <td>ژرمن شپرد</td>
-              <td>بزرگ</td>
-              <td>زیاد</td>
-              <td>متوسط تا زیاد</td>
-            </tr>
-            <tr>
-              <td>هاسکی</td>
-              <td>بزرگ</td>
-              <td>خیلی زیاد</td>
-              <td>زیاد</td>
-            </tr>
-            <tr>
-              <td>گلدن رتریور</td>
-              <td>بزرگ</td>
-              <td>زیاد</td>
-              <td>متوسط تا زیاد</td>
-            </tr>
+            <tr><td>پامرانین</td><td>کوچک</td><td>متوسط</td><td>کم (مناسب آپارتمان)</td></tr>
+            <tr><td>ژرمن شپرد</td><td>بزرگ</td><td>زیاد</td><td>متوسط تا زیاد</td></tr>
+            <tr><td>هاسکی</td><td>بزرگ</td><td>خیلی زیاد</td><td>زیاد</td></tr>
+            <tr><td>گلدن رتریور</td><td>بزرگ</td><td>زیاد</td><td>متوسط تا زیاد</td></tr>
+            <tr><td>شیتزو</td><td>کوچک</td><td>کم</td><td>کم</td></tr>
+            <tr><td>پاگ</td><td>کوچک</td><td>کم</td><td>کم</td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <div class="card" id="care">
-      <h2>راهنمای نگهداری از سگ‌ها 🏠</h2>
-      <p>سگ‌ها برای زندگی سالم به محیط امن، آب تمیز، غذای مناسب، فعالیت روزانه، آموزش، توجه و مراقبت دامپزشکی نیاز دارند.</p>
-    </div>
-
     <div class="card" id="food">
       <h2>راهنمای غذا دادن به سگ‌ها 🍲</h2>
-      <p>غذای سگ باید با سن، اندازه و میزان فعالیت او هماهنگ باشد.</p>
-      <h3>غذاهای ممنوعه و خطرناک 🛑</h3>
-      <ul>
-        <li>🍫 <strong>شکلات و کاکائو:</strong> برای قلب و سیستم عصبی آن‌ها سمی است.</li>
-        <li>🧅 <strong>پیاز و سیر:</strong> باعث تخریب گلبول‌های قرمز خون می‌شود.</li>
-        <li>🍇 <strong>انگور و کشمش:</strong> می‌توانند باعث نارسایی حاد کلیه شوند.</li>
-      </ul>
+      <p>خوراکی‌های ممنوعه: <strong>شکلات، سیر، پیاز و انگور</strong>.</p>
     </div>
 
     <div class="card" id="contact">
@@ -229,7 +193,7 @@
       <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST">
         <input type="text" name="name" placeholder="نام شما" required>
         <input type="email" name="email" placeholder="ایمیل شما" required>
-        <textarea name="message" rows="4" placeholder="پیام یا نظر شما درباره سگ‌ها..." required></textarea>
+        <textarea name="message" rows="4" placeholder="پیام شما..." required></textarea>
         <button type="submit">ارسال پیام</button>
       </form>
     </div>
@@ -251,6 +215,17 @@
         result.innerText = `سن سگ شما معادل تقریباً ${humanAge} سال انسانی است! 🐕`;
       } else {
         result.innerText = "لطفاً یک عدد معتبر وارد کنید.";
+      }
+    }
+
+    function filterDogTable() {
+      const input = document.getElementById("searchDog").value.toUpperCase();
+      const trs = document.getElementById("dogTable").getElementsByTagName("tr");
+      for (let i = 1; i < trs.length; i++) {
+        const td = trs[i].getElementsByTagName("td")[0];
+        if (td) {
+          trs[i].style.display = td.innerText.toUpperCase().indexOf(input) > -1 ? "" : "none";
+        }
       }
     }
   </script>
