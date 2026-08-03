@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -9,7 +8,6 @@
   <title>دنیای سگ‌ها 🐶</title>
 
   <style>
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -33,9 +31,10 @@
       text-decoration: none;
       background: #5f351c;
       padding: 12px 20px;
-      margin: 8px;
+      margin: 5px;
       border-radius: 10px;
       display: inline-block;
+      transition: background 0.3s;
     }
 
     nav a:hover {
@@ -44,6 +43,7 @@
 
     h1 {
       font-size: 42px;
+      margin-top: 10px;
     }
 
     main {
@@ -57,7 +57,7 @@
       margin: 20px 0;
       padding: 25px;
       border-radius: 18px;
-      box-shadow: 0 4px 12px #0002;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: right;
       line-height: 1.9;
     }
@@ -65,6 +65,7 @@
     .card h2,
     .card h3 {
       text-align: center;
+      color: #7a4b2a;
     }
 
     .dog {
@@ -80,12 +81,56 @@
       border-radius: 10px;
       font-size: 17px;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
     button:hover {
       background: #9a6238;
     }
 
+    /* جدول جدید مقایسه نژادها */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #7a4b2a;
+      color: white;
+    }
+
+    /* فرم جدید */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+    }
+
+    /* فوتر */
+    footer {
+      background: #5f351c;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 
@@ -94,12 +139,12 @@
   <header>
 
     <nav>
-      
-    <a href="index.html">🏠 صفحه اصلی</a>
-    <a href="#about">🐶 درباره سگ‌ها</a>
-    <a href="#breeds">🐕 نژادها</a>
-    <a href="#care">🏠 نگهداری</a>
-    <a href="#food">🍲 غذا دادن</a>
+      <a href="#">🏠 صفحه اصلی</a>
+      <a href="#about">🐶 درباره سگ‌ها</a>
+      <a href="#breeds">🐕 نژادها</a>
+      <a href="#care">🏠 نگهداری</a>
+      <a href="#food">🍲 غذا دادن</a>
+      <a href="#contact">✉️ تماس با ما</a>
     </nav>
 
     <div class="dog">🐶</div>
@@ -112,7 +157,7 @@
 
   <main>
 
-    <div class="card"id="about">
+    <div class="card" id="about">
 
       <h2>سگ‌ها چه حیواناتی هستند؟ 🐶</h2>
 
@@ -163,7 +208,8 @@
 
     </div>
 
-    <"div class="card"id="breeds>
+    <!-- اصلاح خطای تایپی در تگ div -->
+    <div class="card" id="breeds">
 
       <h2>راهنمای آشنایی با نژادهای گوناگون 🐶</h2>
 
@@ -245,9 +291,45 @@
         بیگل حس بویایی قوی دارد و معمولاً کنجکاو و فعال است.
       </p>
 
+      <!-- جدول جدید مقایسه سریع نژادها -->
+      <h3>جدول خلاصه ویژگی نژادها 📊</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>نژاد</th>
+              <th>جثه</th>
+              <th>میزان انرژی</th>
+              <th>نیازمند فضا</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>پامرانین</td>
+              <td>کوچک</td>
+              <td>متوسط</td>
+              <td>کم (مناسب آپارتمان)</td>
+            </tr>
+            <tr>
+              <td>ژرمن شپرد</td>
+              <td>بزرگ</td>
+              <td>زیاد</td>
+              <td>متوسط تا زیاد</td>
+            </tr>
+            <tr>
+              <td>هاسکی</td>
+              <td>بزرگ</td>
+              <td>خیلی زیاد</td>
+              <td>زیاد</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
 
-    <div class="card"id="care>
+    <!-- اصلاح خطای تایپی در تگ div -->
+    <div class="card" id="care">
 
       <h2>راهنمای نگهداری از سگ‌ها 🏠</h2>
 
@@ -289,7 +371,8 @@
 
     </div>
 
-    <div class="card"id="food>
+    <!-- اصلاح خطای تایپی در تگ div -->
+    <div class="card" id="food">
 
       <h2>راهنمای غذا دادن به سگ‌ها 🍲</h2>
 
@@ -318,6 +401,18 @@
         اصلی را بگیرد.
       </p>
 
+      <!-- بخش جدید: غذاهای ممنوعه -->
+      <h3>غذاهای ممنوعه و خطرناک 🛑</h3>
+      <p>
+        برخی خوراکی‌های انسانی برای سگ‌ها بسیار سمی هستند و نباید تحت هیچ شرایطی به آن‌ها داده شوند:
+      </p>
+      <ul>
+        <li>🍫 <strong>شکلات و کاکائو:</strong> برای قلب و سیستم عصبی آن‌ها سمی است.</li>
+        <li>🧅 <strong>پیاز و سیر:</strong> باعث تخریب گلبول‌های قرمز خون می‌شود.</li>
+        <li>🍇 <strong>انگور و کشمش:</strong> می‌توانند باعث نارسایی حاد کلیه شوند.</li>
+        <li>☕ <strong>کافئین و قهوه:</strong> بسیار خطرناک و مسموم‌کننده.</li>
+      </ul>
+
       <h3>احتیاط درباره غذای انسان ⚠️</h3>
 
       <p>
@@ -327,7 +422,22 @@
 
     </div>
 
+    <!-- بخش جدید: فرم نظرات -->
+    <div class="card" id="contact">
+      <h2>ارسال نظر یا سؤال ✉️</h2>
+      <form onsubmit="alert('پیام شما با موفقیت ثبت شد!'); return false;">
+        <input type="text" placeholder="نام شما" required>
+        <input type="email" placeholder="ایمیل شما" required>
+        <textarea rows="4" placeholder="پیام یا نظر شما درباره سگ‌ها..." required></textarea>
+        <button type="submit">ارسال پیام</button>
+      </form>
+    </div>
+
   </main>
+
+  <footer>
+    <p>© دنیای سگ‌ها | ساخته‌شده برای دوستداران حیوانات 🐾</p>
+  </footer>
 
 </body>
 
