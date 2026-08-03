@@ -25,17 +25,20 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
+    /* منوی شیشه‌ای شناور */
     nav {
       position: sticky;
       top: 15px;
       z-index: 1000;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       max-width: 750px;
       margin: 0 auto 30px auto;
       padding: 10px 15px;
       border-radius: 50px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -70,6 +73,7 @@
       padding: 30px;
       border-radius: 24px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
       text-align: right;
       line-height: 2;
     }
@@ -86,8 +90,16 @@
       transition: all 0.3s ease;
     }
 
-    .btn-dog { background: linear-gradient(135deg, #8b4513 0%, #5c2c06 100%); }
-    .btn-cat { background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%); }
+    .btn-dog {
+      background: linear-gradient(135deg, #8b4513 0%, #5c2c06 100%);
+      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    }
+
+    .btn-cat {
+      background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
+      box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3);
+    }
+
     .buttons a:hover { transform: translateY(-3px); }
 
     .quiz-box, .fact-box {
@@ -131,14 +143,44 @@
     </nav>
     <div class="animals">🐶🐱</div>
     <h1>دنیای سگ و گربه</h1>
-    <p>آشنایی با حیوانات دوست‌داشتنی، نژادها و ابزارهای کاربردی 🐾</p>
+    <p>آشنایی با حیوانات دوست‌داشتنی، نژادها و روش نگهداری از آن‌ها 🐾</p>
   </header>
 
   <main>
 
     <div class="card">
       <h2>به دنیای سگ و گربه خوش آمدید! 🐶🐱</h2>
-      <p>این سایت برای تمام علاقه‌مندان به حیوانات ساخته شده تا بتوانند اطلاعات آموزشی، راهنمای نگهداری و ابزارهای جذاب و کاربردی درباره سگ‌ها و گربه‌ها را یک‌جا داشته باشند.</p>
+      <p>
+        این سایت برای افرادی ساخته شده است که دوست دارند اطلاعات بیشتری
+        درباره سگ‌ها و گربه‌ها یاد بگیرند. در اینجا تلاش می‌کنیم مطالب را
+        به زبان ساده و مرتب توضیح دهیم تا همه بتوانند با ویژگی‌ها و
+        نیازهای این حیوانات آشنا شوند.
+      </p>
+      <p>
+        سگ‌ها و گربه‌ها هرکدام رفتار، ویژگی‌ها و نیازهای مخصوص خود را
+        دارند. نگهداری از یک حیوان فقط بازی کردن یا غذا دادن نیست؛
+        مسئولیت‌پذیری، مراقبت، توجه و فراهم کردن محیط امن نیز اهمیت زیادی
+        دارد.
+      </p>
+    </div>
+
+    <!-- بخش درباره ما اضافه شده -->
+    <div class="card" id="about">
+      <h2>درباره ما ℹ️</h2>
+      <p>
+        «دنیای سگ و گربه» یک سایت آموزشی درباره حیوانات خانگی است.
+        هدف ما این است که اطلاعات مفید و قابل فهمی درباره سگ‌ها و
+        گربه‌ها در یک مکان جمع کنیم.
+      </p>
+      <p>
+        ما تلاش می‌کنیم مطالب سایت مرتب و ساده باشند تا بازدیدکنندگان
+        بتوانند راحت‌تر موضوع مورد علاقه خود را پیدا کنند.
+      </p>
+      <p>
+        این سایت برای یادگیری و آشنایی بهتر با حیوانات ساخته شده است و
+        به کاربران کمک می‌کند قبل از نگهداری از یک حیوان، درباره نیازها
+        و مسئولیت‌های آن اطلاعات بیشتری داشته باشند.
+      </p>
     </div>
 
     <div class="card" id="quiz">
@@ -171,6 +213,9 @@
 
     <div class="card">
       <h2>از کجا شروع کنیم؟ 🐾</h2>
+      <p style="text-align: center;">
+        برای دیدن مطالب، یکی از بخش‌های زیر را انتخاب کن:
+      </p>
       <div class="buttons">
         <a href="dogs.html" class="btn-dog">🐶 ورود به دنیای سگ‌ها</a>
         <a href="cats.html" class="btn-cat">🐱 ورود به دنیای گربه‌ها</a>
