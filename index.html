@@ -7,17 +7,41 @@
   <title>دنیای سگ و گربه 🐶🐱</title>
 
   <style>
+    :root {
+      --bg-color: linear-gradient(135deg, #fbf7f5 0%, #eef2f5 100%);
+      --text-color: #2d3748;
+      --card-bg: white;
+      --header-bg: linear-gradient(135deg, #6b3e2e 0%, #4a281e 100%);
+      --box-bg: #fdf8f5;
+      --border-color: rgba(0, 0, 0, 0.05);
+      --nav-bg: rgba(255, 255, 255, 0.85);
+      --nav-text: #4a5568;
+    }
+
+    /* استایل تم تاریک */
+    body.dark-mode {
+      --bg-color: linear-gradient(135deg, #121212 0%, #1e1e24 100%);
+      --text-color: #e2e8f0;
+      --card-bg: #1e1e2d;
+      --header-bg: linear-gradient(135deg, #2a1b18 0%, #1a0f0d 100%);
+      --box-bg: #2d2b38;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --nav-bg: rgba(30, 30, 45, 0.85);
+      --nav-text: #cbd5e1;
+    }
+
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #fbf7f5 0%, #eef2f5 100%);
-      color: #2d3748;
+      background: var(--bg-color);
+      color: var(--text-color);
       text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     header {
-      background: linear-gradient(135deg, #6b3e2e 0%, #4a281e 100%);
+      background: var(--header-bg);
       color: white;
       padding: 50px 20px 60px;
       border-bottom-left-radius: 30px;
@@ -29,21 +53,22 @@
       position: sticky;
       top: 15px;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.85);
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto 30px auto;
       padding: 10px 15px;
       border-radius: 50px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       gap: 8px;
     }
 
     nav a {
-      color: #4a5568;
+      color: var(--nav-text);
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
@@ -58,6 +83,19 @@
       transform: translateY(-2px);
     }
 
+    .theme-toggle-btn {
+      background: #6b3e2e;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+    .theme-toggle-btn:hover { transform: scale(1.05); }
+
     .animals { font-size: 80px; animation: float 3s ease-in-out infinite; }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
@@ -65,17 +103,18 @@
     main { max-width: 850px; margin: auto; padding: 20px; }
 
     .card {
-      background: white;
+      background: var(--card-bg);
       margin: 30px 0;
       padding: 30px;
       border-radius: 24px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-color);
       text-align: right;
       line-height: 2;
+      transition: background 0.3s ease;
     }
 
-    .card h2 { text-align: center; color: #6b3e2e; font-size: 26px; }
+    .card h2 { text-align: center; color: #d97706; font-size: 26px; }
 
     .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 25px; }
     .buttons a {
@@ -92,8 +131,8 @@
     .buttons a:hover { transform: translateY(-3px); }
 
     .box-style {
-      background: #fdf8f5;
-      border-right: 4px solid #6b3e2e;
+      background: var(--box-bg);
+      border-right: 4px solid #d97706;
       padding: 20px;
       border-radius: 12px;
       margin-top: 15px;
@@ -123,7 +162,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
-    footer { background: #2d3748; color: white; padding: 25px; margin-top: 50px; }
+    footer { background: #1a202c; color: white; padding: 25px; margin-top: 50px; }
   </style>
 </head>
 
@@ -134,9 +173,10 @@
       <a href="index.html">🏠 اصلی</a>
       <a href="dogs.html">🐶 سگ‌ها</a>
       <a href="cats.html">🐱 گربه‌ها</a>
+      <a href="#vaccine">💉 واکسیناسیون</a>
       <a href="#name-gen">🎨 پیشنهاد اسم</a>
-      <a href="#checklist">✅ چک‌لیست خرید</a>
-      <a href="#about">ℹ️ درباره ما</a>
+      <a href="#checklist">✅ چک‌لیست</a>
+      <button class="theme-toggle-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
     </nav>
     <div class="animals">🐶🐱</div>
     <h1>دنیای سگ و گربه</h1>
@@ -147,7 +187,19 @@
 
     <div class="card">
       <h2>به دنیای سگ و گربه خوش آمدید! 🐶🐱</h2>
-      <p>این سایت مرجعی ساده و مدرن برای یادگیری ویژگی‌های سگ‌ها و گربه‌ها، انتخاب اسم، استفاده از چک‌لیست خرید و محاسبات سن حیوانات است.</p>
+      <p>این سایت مرجعی ساده و مدرن برای یادگیری ویژگی‌های سگ‌ها و گربه‌ها، انتخاب اسم، یادآوری زمان واکسن و چک‌لیست خرید است.</p>
+    </div>
+
+    <!-- ابزار یادآور واکسیناسیون -->
+    <div class="card" id="vaccine">
+      <h2>💉 محاسبه‌گر و یادآور نوبت واکسن بعدی</h2>
+      <div class="box-style" style="text-align: center;">
+        <p>تاریخ آخرین واکسن حیوان خانگی‌تان را وارد کنید تا نوبت واکسن یادآور بعدی مشخص شود:</p>
+        <input type="date" id="lastVaccineDate" style="padding: 10px; border-radius: 8px; margin: 10px; font-family: inherit;">
+        <br>
+        <button onclick="calculateVaccine()" style="background: #d97706; color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: bold; cursor: pointer;">محاسبه زمان واکسن بعدی 📅</button>
+        <h3 id="vaccineResult" style="color: #d97706; margin-top: 15px;"></h3>
+      </div>
     </div>
 
     <!-- بخش پیشنهاد اسم هوشمند -->
@@ -183,12 +235,6 @@
       </div>
     </div>
 
-    <!-- بخش درباره ما -->
-    <div class="card" id="about">
-      <h2>درباره ما ℹ️</h2>
-      <p>«دنیای سگ و گربه» یک وب‌سایت آموزشی و کاربردی است که برای کمک به سرپرستان و علاقه‌مندان حیوانات خانگی طراحی شده است تا با مسئولیت‌پذیری بیشتری از حیوانات نگهداری کنند.</p>
-    </div>
-
     <div class="card">
       <h2>ورود به بخش اختصاصی 🐾</h2>
       <div class="buttons">
@@ -206,6 +252,12 @@
   </footer>
 
   <script>
+    // اسکریپت حالت شب و روز
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // اسکریپت پیشنهاد اسم
     const dogMaleNames = ["لئو", "توفی", "بفی", "ژوپیتر", "چارلی", "بندر", "تدی"];
     const dogFemaleNames = ["لوسی", "بلا", "کوکو", "فندق", "مایا", "بانی", "دیزی"];
     const catMaleNames = ["میلو", "سیمبا", "برفی", "پشمک", "فیگارو", "لئو", "اسکار"];
@@ -223,6 +275,24 @@
 
       const randomName = names[Math.floor(Math.random() * names.length)];
       document.getElementById('nameResult').innerText = `اسم پیشنهادی: « ${randomName} » ✨`;
+    }
+
+    // اسکریپت یادآور واکسیناسیون
+    function calculateVaccine() {
+      const inputDate = document.getElementById('lastVaccineDate').value;
+      const result = document.getElementById('vaccineResult');
+      
+      if (!inputDate) {
+        result.innerText = "لطفاً تاریخ واکسن قبلی را مشخص کنید.";
+        return;
+      }
+
+      const date = new Date(inputDate);
+      // اضافه کردن ۱ سال (۳۶۵ روز) برای واکسن یادآور سالانه
+      date.setFullYear(date.getFullYear() + 1);
+      
+      const nextDateStr = date.toISOString().split('T')[0];
+      result.innerText = `تاریخ موعد واکسن بعدی (یادآور سالانه): ${nextDateStr} 🐾`;
     }
   </script>
 
