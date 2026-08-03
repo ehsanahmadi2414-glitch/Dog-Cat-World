@@ -4,25 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>دنیای سگ و گربه 🐶🐱</title>
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* پس‌زمینه ترکیبی مدرن و شیک برای صفحه اصلی */
       background: linear-gradient(135deg, #fbf7f5 0%, #eef2f5 100%);
       color: #2d3748;
       text-align: center;
     }
 
     header {
-      /* پس‌زمینه هدر ترکیبی با گرادینت گرم */
       background: linear-gradient(135deg, #6b3e2e 0%, #4a281e 100%);
       color: white;
       padding: 50px 20px 60px;
@@ -31,20 +25,17 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
-    /* منوی شیک و مدرن شناور (Glassmorphism) */
     nav {
       position: sticky;
       top: 15px;
       z-index: 1000;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       max-width: 750px;
       margin: 0 auto 30px auto;
       padding: 10px 15px;
       border-radius: 50px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -65,35 +56,13 @@
       background: #6b3e2e;
       color: white;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(107, 62, 46, 0.3);
     }
 
-    .animals {
-      font-size: 80px;
-      animation: float 3s ease-in-out infinite;
-    }
+    .animals { font-size: 80px; animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    h1 {
-      font-size: 40px;
-      margin-top: 15px;
-      letter-spacing: -0.5px;
-    }
-
-    header p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
-
-    main {
-      max-width: 850px;
-      margin: auto;
-      padding: 20px;
-    }
+    h1 { font-size: 40px; margin-top: 15px; }
+    main { max-width: 850px; margin: auto; padding: 20px; }
 
     .card {
       background: white;
@@ -101,236 +70,136 @@
       padding: 30px;
       border-radius: 24px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.03);
       text-align: right;
       line-height: 2;
     }
 
-    .card h2 {
-      text-align: center;
-      color: #6b3e2e;
-      font-size: 26px;
-    }
+    .card h2 { text-align: center; color: #6b3e2e; font-size: 26px; }
 
-    .card h3 {
-      color: #6b3e2e;
-      margin-top: 25px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 25px;
-    }
-
+    .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 25px; }
     .buttons a {
-      display: inline-block;
       text-decoration: none;
       color: white;
       padding: 14px 28px;
       border-radius: 50px;
-      font-size: 16px;
       font-weight: bold;
       transition: all 0.3s ease;
     }
 
-    /* دکمه اختصاصی سگ‌ها */
-    .btn-dog {
-      background: linear-gradient(135deg, #8b4513 0%, #5c2c06 100%);
-      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    .btn-dog { background: linear-gradient(135deg, #8b4513 0%, #5c2c06 100%); }
+    .btn-cat { background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%); }
+    .buttons a:hover { transform: translateY(-3px); }
+
+    .quiz-box, .fact-box {
+      background: #fdf8f5;
+      border-right: 4px solid #6b3e2e;
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 15px;
     }
 
-    .btn-dog:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
-    }
-
-    /* دکمه اختصاصی گربه‌ها */
-    .btn-cat {
-      background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
-      box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3);
-    }
-
-    .btn-cat:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(107, 33, 168, 0.4);
-    }
-
-    footer {
-      background: #2d3748;
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: #6b3e2e;
       color: white;
-      padding: 25px;
-      margin-top: 50px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
+
+    footer { background: #2d3748; color: white; padding: 25px; margin-top: 50px; }
   </style>
 </head>
 
 <body>
 
-  <header>
-
+  <header id="top">
     <nav translate="no">
       <a href="index.html">🏠 صفحه اصلی</a>
       <a href="dogs.html">🐶 دنیای سگ‌ها</a>
       <a href="cats.html">🐱 دنیای گربه‌ها</a>
+      <a href="#quiz">🧩 تست انتخابی</a>
       <a href="#about">ℹ️ درباره ما</a>
     </nav>
-
     <div class="animals">🐶🐱</div>
-
     <h1>دنیای سگ و گربه</h1>
-
-    <p>
-      آشنایی با حیوانات دوست‌داشتنی، نژادها و روش نگهداری از آن‌ها
-    </p>
-
+    <p>آشنایی با حیوانات دوست‌داشتنی، نژادها و ابزارهای کاربردی 🐾</p>
   </header>
 
   <main>
 
     <div class="card">
-
       <h2>به دنیای سگ و گربه خوش آمدید! 🐶🐱</h2>
-
-      <p>
-        این سایت برای افرادی ساخته شده است که دوست دارند اطلاعات بیشتری
-        درباره سگ‌ها و گربه‌ها یاد بگیرند. در اینجا تلاش می‌کنیم مطالب را
-        به زبان ساده و مرتب توضیح دهیم تا همه بتوانند با ویژگی‌ها و
-        نیازهای این حیوانات آشنا شوند.
-      </p>
-
-      <p>
-        سگ‌ها و گربه‌ها هرکدام رفتار، ویژگی‌ها و نیازهای مخصوص خود را
-        دارند. نگهداری از یک حیوان فقط بازی کردن یا غذا دادن نیست؛
-        مسئولیت‌پذیری، مراقبت، توجه و فراهم کردن محیط امن نیز اهمیت زیادی
-        دارد.
-      </p>
-
+      <p>این سایت برای تمام علاقه‌مندان به حیوانات ساخته شده تا بتوانند اطلاعات آموزشی، راهنمای نگهداری و ابزارهای جذاب و کاربردی درباره سگ‌ها و گربه‌ها را یک‌جا داشته باشند.</p>
     </div>
 
-    <div class="card" id="about">
+    <div class="card" id="quiz">
+      <h2>🧩 تست هوشمند: سگ برای شما مناسب‌تر است یا گربه؟</h2>
+      <div class="quiz-box">
+        <label>۱. چقدر در روز وقت برای پیاده‌روی و فعالیت دارید؟</label><br>
+        <select id="q1" style="width: 100%; padding: 8px; margin: 10px 0; border-radius: 8px;">
+          <option value="dog">بیشتر از یک ساعت در روز</option>
+          <option value="cat">کمتر از ۳۰ دقیقه یا ترجیح می‌دهم در خانه باشم</option>
+        </select>
 
-      <h2>درباره ما ℹ️</h2>
+        <label>۲. محیط زندگی شما چگونه است؟</label><br>
+        <select id="q2" style="width: 100%; padding: 8px; margin: 10px 0; border-radius: 8px;">
+          <option value="dog">خانه ویلایی یا دارای حیاط</option>
+          <option value="cat">آپارتمان یا فضای کوچک</option>
+        </select>
 
-      <p>
-        «دنیای سگ و گربه» یک سایت آموزشی درباره حیوانات خانگی است.
-        هدف ما این است که اطلاعات مفید و قابل فهمی درباره سگ‌ها و
-        گربه‌ها در یک مکان جمع کنیم.
-      </p>
-
-      <p>
-        ما تلاش می‌کنیم مطالب سایت مرتب و ساده باشند تا بازدیدکنندگان
-        بتوانند راحت‌تر موضوع مورد علاقه خود را پیدا کنند.
-      </p>
-
-      <p>
-        این سایت برای یادگیری و آشنایی بهتر با حیوانات ساخته شده است و
-        به کاربران کمک می‌کند قبل از نگهداری از یک حیوان، درباره نیازها
-        و مسئولیت‌های آن اطلاعات بیشتری داشته باشند.
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <h2>ما چه کارهایی انجام می‌دهیم؟ 🐾</h2>
-
-      <h3>🐶 معرفی سگ‌ها</h3>
-      <p>
-        در بخش سگ‌ها درباره ویژگی‌های سگ‌ها، نژادهای گوناگون، روش
-        نگهداری، فعالیت، آموزش و غذا دادن توضیح داده می‌شود.
-      </p>
-
-      <h3>🐱 معرفی گربه‌ها</h3>
-      <p>
-        در بخش گربه‌ها می‌توانید با رفتار گربه‌ها، نژادهای مختلف،
-        نگهداری، نظافت، بازی و غذای مناسب آن‌ها آشنا شوید.
-      </p>
-
-      <h3>🐕 معرفی نژادها</h3>
-      <p>
-        در سایت، نژادهای مختلف سگ و گربه معرفی می‌شوند و درباره
-        ظاهر، ویژگی‌های معمول و نیازهای آن‌ها توضیح داده می‌شود.
-      </p>
-
-      <h3>🏠 آموزش نگهداری</h3>
-      <p>
-        درباره آماده کردن محیط مناسب، جای خواب، آب تمیز، نظافت،
-        فعالیت و مراقبت از حیوانات اطلاعات قرار می‌دهیم.
-      </p>
-
-      <h3>🍲 راهنمای غذا</h3>
-      <p>
-        درباره اهمیت غذای مناسب، آب تازه، وعده‌های غذایی و احتیاط
-        درباره خوراکی‌های نامناسب توضیح داده می‌شود.
-      </p>
-
-      <h3>❤️ تشویق به مراقبت مسئولانه</h3>
-      <p>
-        هدف ما این است که اهمیت مهربانی، مسئولیت‌پذیری و مراقبت درست
-        از حیوانات بیشتر شناخته شود.
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <h2>از کجا شروع کنیم؟ 🐾</h2>
-
-      <p style="text-align: center;">
-        برای دیدن مطالب، یکی از بخش‌های زیر را انتخاب کن:
-      </p>
-
-      <div class="buttons">
-
-        <a href="dogs.html" class="btn-dog">
-          🐶 ورود به دنیای سگ‌ها
-        </a>
-
-        <a href="cats.html" class="btn-cat">
-          🐱 ورود به دنیای گربه‌ها
-        </a>
-
+        <button onclick="checkQuiz()" style="background: #6b3e2e; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; width: 100%; font-weight: bold;">مشاهده نتیجه تست</button>
+        <p id="quiz-result" style="text-align: center; font-weight: bold; margin-top: 15px; color: #6b3e2e;"></p>
       </div>
-
     </div>
 
     <div class="card">
+      <h2>💡 آیا می‌دانستید؟ (دانستنی‌های عجیب)</h2>
+      <div class="fact-box">
+        <p>🐾 <strong>اثر دماغ:</strong> اثر بینی هر سگ مانند اثر انگشت انسان کاملاً منحصربه‌فرد است!</p>
+        <p>🐾 <strong>حافظه گربه‌ها:</strong> گربه‌ها می‌توانند تا ۷۰٪ از روز را در خواب بگذرانند و حس شنوایی آن‌ها ۲ برابر قوی‌تر از انسان است.</p>
+      </div>
+    </div>
 
-      <h2>هدف ما چیست؟ 🌍</h2>
-
-      <p>
-        هدف ما ساختن یک سایت ساده، زیبا و آموزشی است که اطلاعات مربوط
-        به سگ‌ها و گربه‌ها را در بخش‌های جداگانه نشان دهد.
-      </p>
-
-      <p>
-        امیدواریم بازدیدکنندگان با خواندن مطالب سایت، حیوانات را بهتر
-        بشناسند و درباره نگهداری از آن‌ها آگاهانه‌تر تصمیم بگیرند.
-      </p>
-
-      <p style="text-align: center; font-size: 20px; font-weight: bold; margin-top: 20px;">
-        🐶🐱 با مهربانی و مسئولیت از حیوانات مراقبت کنیم 🐾
-      </p>
-
+    <div class="card">
+      <h2>از کجا شروع کنیم؟ 🐾</h2>
+      <div class="buttons">
+        <a href="dogs.html" class="btn-dog">🐶 ورود به دنیای سگ‌ها</a>
+        <a href="cats.html" class="btn-cat">🐱 ورود به دنیای گربه‌ها</a>
+      </div>
     </div>
 
   </main>
 
+  <a href="#top" class="back-to-top">↑</a>
+
   <footer>
-
-    <p>
-      🐾 دنیای سگ و گربه | سایت آموزشی درباره حیوانات
-    </p>
-
-    <p style="margin-top: 10px; opacity: 0.8;">
-      ساخته شده با ❤️
-    </p>
-
+    <p>🐾 دنیای سگ و گربه | ساخته شده با ❤️</p>
   </footer>
 
-</body>
+  <script>
+    function checkQuiz() {
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const result = document.getElementById('quiz-result');
 
+      if (q1 === 'dog' && q2 === 'dog') {
+        result.innerText = "نتیجه: سگ‌ها عالی‌ترین همدم برای سبک زندگی پرانرژی شما هستند! 🐶";
+      } else if (q1 === 'cat' && q2 === 'cat') {
+        result.innerText = "نتیجه: گربه‌ها بهترین انتخاب برای محیط آرام و آپارتمانی شما هستند! 🐱";
+      } else {
+        result.innerText = "نتیجه: شما می‌توانید هم با گربه‌های آرام و هم با نژادهای کوچک سگ زندگی خوبی داشته باشید! 🐶🐱";
+      }
+    }
+  </script>
+
+</body>
 </html>
