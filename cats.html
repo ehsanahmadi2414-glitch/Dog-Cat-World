@@ -4,25 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>دنیای گربه‌ها 🐱</title>
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* پس‌زمینه مخصوص گربه‌ها: گرادینت بنفش و نیلی ملایم */
       background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%);
       color: #2d3748;
       text-align: center;
     }
 
     header {
-      /* پس‌زمینه هدر گربه‌ها: تنالیته بنفش ارغوانی شیک */
       background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
       color: white;
       padding: 50px 20px 60px;
@@ -31,20 +25,17 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    /* منوی شیک و مدرن شناور */
     nav {
       position: sticky;
       top: 15px;
       z-index: 1000;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       max-width: 750px;
       margin: 0 auto 30px auto;
       padding: 10px 15px;
       border-radius: 50px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -61,24 +52,9 @@
       transition: all 0.3s ease;
     }
 
-    nav a:hover {
-      background: #6b21a8;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(107, 33, 168, 0.3);
-    }
+    nav a:hover { background: #6b21a8; color: white; }
 
-    h1 {
-      font-size: 40px;
-      margin-top: 15px;
-      letter-spacing: -0.5px;
-    }
-
-    main {
-      max-width: 850px;
-      margin: auto;
-      padding: 20px;
-    }
+    main { max-width: 850px; margin: auto; padding: 20px; }
 
     .card {
       background: white;
@@ -86,25 +62,32 @@
       padding: 30px;
       border-radius: 24px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.03);
       text-align: right;
       line-height: 2;
     }
 
-    .card h2, .card h3 {
+    .card h2, .card h3 { text-align: center; color: #6b21a8; }
+
+    .calc-box {
+      background: #fbf5ff;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid #e9d5ff;
       text-align: center;
-      color: #6b21a8;
     }
 
-    .cat {
-      font-size: 80px;
-      text-align: center;
-      animation: float 3s ease-in-out infinite;
-    }
+    .table-container { overflow-x: auto; border-radius: 12px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #edf2f7; padding: 12px; text-align: center; }
+    th { background-color: #6b21a8; color: white; }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    form { display: flex; flex-direction: column; gap: 15px; }
+
+    input, textarea {
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      font-family: inherit;
     }
 
     button {
@@ -116,123 +99,77 @@
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3);
-      transition: all 0.3s ease;
     }
 
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(107, 33, 168, 0.4);
-    }
-
-    .table-container {
-      overflow-x: auto;
-      border-radius: 12px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-
-    th, td {
-      border: 1px solid #edf2f7;
-      padding: 12px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #6b21a8;
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: #6b21a8;
       color: white;
-    }
-
-    form {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
     }
 
-    input, textarea {
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      font-family: inherit;
-      outline: none;
-      transition: border 0.3s;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #6b21a8;
-    }
-
-    footer {
-      background: #2d3748;
-      color: white;
-      padding: 25px;
-      margin-top: 50px;
-    }
+    footer { background: #2d3748; color: white; padding: 25px; margin-top: 50px; }
   </style>
 </head>
 
 <body>
 
-  <header id="home">
-
+  <header id="top">
     <nav translate="no">
       <a href="index.html">🏠 صفحه اصلی</a>
       <a href="#about">🐱 درباره گربه‌ها</a>
       <a href="#breeds">🐈 نژادها</a>
+      <a href="#calc">🧮 محاسبه سن</a>
       <a href="#care">🏠 نگهداری</a>
       <a href="#food">🍲 غذا دادن</a>
       <a href="#contact">✉️ تماس با ما</a>
     </nav>
 
-    <div class="cat">🐱</div>
-
+    <div style="font-size: 80px;">🐱</div>
     <h1>دنیای گربه‌ها</h1>
-
     <p>همه‌چیز درباره گربه‌های دوست‌داشتنی 🐾</p>
-
   </header>
 
   <main>
 
     <div class="card" id="about">
       <h2>گربه‌ها چه حیواناتی هستند؟ 🐱</h2>
-      <p>
-        گربه‌ها حیواناتی باهوش، کنجکاو و مستقل هستند و مدت‌های طولانی
-        در کنار انسان‌ها زندگی کرده‌اند. هر گربه شخصیت و رفتار مخصوص
-        خودش را دارد.
-      </p>
-      <p>
-        بعضی گربه‌ها بازیگوش و پرانرژی هستند و بعضی آرام‌ترند.
-        گربه‌ها برای زندگی سالم به محیط امن، غذای مناسب، آب تمیز،
-        بازی، توجه و مراقبت نیاز دارند.
-      </p>
+      <p>گربه‌ها حیواناتی باهوش، کنجکاو و مستقل هستند و مدت‌های طولانی در کنار انسان‌ها زندگی کرده‌اند. هر گربه شخصیت و رفتار مخصوص خودش را دارد.</p>
     </div>
 
-    <div class="card">
-      <h2>چند نکته جالب درباره گربه‌ها 🐾</h2>
-      <p>🐱 گربه‌ها معمولاً حس شنوایی و بویایی بسیار قوی دارند.</p>
-      <p>😺 بازی کردن به فعال ماندن ذهن و بدن گربه کمک می‌کند.</p>
-      <p>❤️ محیط آرام و رفتار مهربانانه باعث می‌شود گربه احساس امنیت کند.</p>
-    </div>
-
-    <div class="card">
-      <h2>گربه‌ها را دوست داری؟ 😺</h2>
-      <div style="text-align: center;">
-        <button onclick="alert('میو میو! 🐱🐾')">بله! 😺</button>
+    <div class="card" id="calc">
+      <h2>🧮 محاسبه‌گر سن گربه به سن انسانی</h2>
+      <div class="calc-box">
+        <label>سن گربه خود را به سال وارد کنید:</label>
+        <input type="number" id="catAge" placeholder="مثلاً: 2" min="1" max="25" style="width: 100%; margin: 10px 0;">
+        <button onclick="calculateCatAge()" style="width: 100%;">محاسبه سن انسانی</button>
+        <h3 id="catAgeResult" style="color: #6b21a8; margin-top: 15px;"></h3>
       </div>
     </div>
 
     <div class="card" id="breeds">
       <h2>آشنایی با نژادهای گوناگون گربه‌ها 🐈</h2>
-      <p>
-        نژاد گربه می‌تواند اطلاعاتی درباره ظاهر، اندازه مو و بعضی
-        ویژگی‌های معمول آن بدهد، اما شخصیت هر گربه فقط به نژادش
-        بستگی ندارد.
-      </p>
+
+      <h3>گربه پرشین 🐱</h3>
+      <p>پرشین به موهای بلند و ظاهر پشمالو معروف است. موهای این گربه معمولاً به برس کشیدن منظم نیاز دارد.</p>
+
+      <h3>گربه سیامی 🐾</h3>
+      <p>گربه سیامی به ظاهر خاص، چشم‌های آبی و ارتباط زیاد با انسان‌ها معروف است.</p>
+
+      <h3>گربه بریتیش 🐈</h3>
+      <p>گربه بریتیش معمولاً بدنی قوی، چهره‌ای گرد و موهایی نرم و کوتاه دارد.</p>
+
+      <h3>گربه اسکاتیش فولد 👂</h3>
+      <p>بعضی گربه‌های اسکاتیش فولد گوش‌هایی دارند که به سمت جلو خم شده‌اند.</p>
 
       <h3>جدول خلاصه ویژگی نژادها 📊</h3>
       <div class="table-container">
@@ -271,24 +208,17 @@
 
     <div class="card" id="care">
       <h2>راهنمای نگهداری از گربه‌ها 🏠</h2>
-      <p>
-        نگهداری از گربه فقط غذا دادن نیست. گربه‌ها به جای امن، آب
-        تمیز، غذای مناسب، محل خواب، بازی، رسیدگی و مراقبت دامپزشکی
-        نیاز دارند.
-      </p>
+      <p>نگهداری از گربه شامل فراهم کردن جای امن، ظرف خاک تمیز، غذای مناسب، بازی روزانه و مراقبت دامپزشکی است.</p>
     </div>
 
     <div class="card" id="food">
       <h2>راهنمای غذا دادن به گربه‌ها 🍲</h2>
-      <p>
-        غذای گربه باید با سن، اندازه، میزان فعالیت و شرایط سلامتی او
-        هماهنگ باشد.
-      </p>
-      <h3>غذاهای ممنوعه و خطرناک برای گربه‌ها 🛑</h3>
+      <p>غذای گربه باید شامل پروتئین‌های باکیفیت باشد.</p>
+      <h3>غذاهای ممنوعه و خطرناک 🛑</h3>
       <ul>
         <li>🧅 <strong>پیاز و سیر:</strong> سلول‌های قرمز خون گربه را تخریب می‌کنند.</li>
         <li>🍫 <strong>شکلات و کاکائو:</strong> حاوی مواد سمی برای قلب گربه.</li>
-        <li>🥛 <strong>شیر گاو (برای اکثر گربه‌های بالغ):</strong> گربه‌ها نتوانند لاکتوز را هضم کنند.</li>
+        <li>🥛 <strong>شیر گاو (برای اکثر گربه‌های بالغ):</strong> به دلیل عدم هضم لاکتوز باعث مشکلات گوارشی می‌شود.</li>
       </ul>
     </div>
 
@@ -304,11 +234,24 @@
 
   </main>
 
+  <a href="#top" class="back-to-top">↑</a>
+
   <footer>
     <p>© دنیای گربه‌ها | ساخته‌شده برای دوستداران گربه‌ها 🐾</p>
   </footer>
 
-</body>
+  <script>
+    function calculateCatAge() {
+      const age = document.getElementById('catAge').value;
+      const result = document.getElementById('catAgeResult');
+      if (age > 0) {
+        let humanAge = age == 1 ? 15 : age == 2 ? 24 : 24 + (age - 2) * 4;
+        result.innerText = `سن گربه شما معادل تقریباً ${humanAge} سال انسانی است! 🐈`;
+      } else {
+        result.innerText = "لطفاً یک عدد معتبر وارد کنید.";
+      }
+    }
+  </script>
 
-  </html>
-  
+</body>
+</html>
