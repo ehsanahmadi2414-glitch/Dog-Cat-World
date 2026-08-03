@@ -139,7 +139,6 @@
 
   <header id="home">
 
-    <!-- ویژگی translate="no" مانع خراب‌کاری ترجمه مرورگر می‌شود -->
     <nav translate="no">
       <a href="index.html">🏠 صفحه اصلی</a>
       <a href="#about">🐶 درباره سگ‌ها</a>
@@ -421,10 +420,10 @@
 
     <div class="card" id="contact">
       <h2>ارسال نظر یا سؤال ✉️</h2>
-      <form onsubmit="alert('پیام شما با موفقیت ثبت شد!'); return false;">
-        <input type="text" placeholder="نام شما" required>
-        <input type="email" placeholder="ایمیل شما" required>
-        <textarea rows="4" placeholder="پیام یا نظر شما درباره سگ‌ها..." required></textarea>
+      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="نام شما" required>
+        <input type="email" name="email" placeholder="ایمیل شما" required>
+        <textarea name="message" rows="4" placeholder="پیام یا نظر شما درباره سگ‌ها..." required></textarea>
         <button type="submit">ارسال پیام</button>
       </form>
     </div>
