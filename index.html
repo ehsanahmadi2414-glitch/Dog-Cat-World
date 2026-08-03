@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -9,82 +8,120 @@
   <title>دنیای سگ و گربه 🐶🐱</title>
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff4e6;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* پس‌زمینه ترکیبی مدرن و شیک برای صفحه اصلی */
+      background: linear-gradient(135deg, #fbf7f5 0%, #eef2f5 100%);
+      color: #2d3748;
       text-align: center;
     }
 
     header {
-      background: #7a4b2a;
+      /* پس‌زمینه هدر ترکیبی با گرادینت گرم */
+      background: linear-gradient(135deg, #6b3e2e 0%, #4a281e 100%);
       color: white;
-      padding: 45px 20px 60px;
+      padding: 50px 20px 60px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
+    /* منوی شیک و مدرن شناور (Glassmorphism) */
     nav {
-      margin-bottom: 25px;
+      position: sticky;
+      top: 15px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      max-width: 750px;
+      margin: 0 auto 30px auto;
+      padding: 10px 15px;
+      border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     nav a {
-      color: white;
+      color: #4a5568;
       text-decoration: none;
-      background: #5f351c;
-      padding: 12px 20px;
-      margin: 7px;
-      border-radius: 10px;
-      display: inline-block;
-      font-size: 17px;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
     }
 
     nav a:hover {
-      background: #9a6238;
+      background: #6b3e2e;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(107, 62, 46, 0.3);
     }
 
     .animals {
-      font-size: 85px;
+      font-size: 80px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 40px;
+      margin-top: 15px;
+      letter-spacing: -0.5px;
     }
 
     header p {
-      font-size: 19px;
+      font-size: 18px;
+      opacity: 0.9;
     }
 
     main {
-      max-width: 900px;
+      max-width: 850px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 20px;
     }
 
     .card {
       background: white;
-      margin: 25px 0;
+      margin: 30px 0;
       padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 4px 12px #0002;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.03);
       text-align: right;
       line-height: 2;
     }
 
     .card h2 {
       text-align: center;
-      color: #7a4b2a;
-      font-size: 28px;
+      color: #6b3e2e;
+      font-size: 26px;
     }
 
     .card h3 {
-      color: #7a4b2a;
+      color: #6b3e2e;
       margin-top: 25px;
     }
 
     .buttons {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
       margin-top: 25px;
     }
 
@@ -92,24 +129,41 @@
       display: inline-block;
       text-decoration: none;
       color: white;
-      background: #7a4b2a;
-      padding: 15px 25px;
-      margin: 8px;
-      border-radius: 12px;
-      font-size: 18px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
     }
 
-    .buttons a:hover {
-      background: #9a6238;
+    /* دکمه اختصاصی سگ‌ها */
+    .btn-dog {
+      background: linear-gradient(135deg, #8b4513 0%, #5c2c06 100%);
+      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    }
+
+    .btn-dog:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+    }
+
+    /* دکمه اختصاصی گربه‌ها */
+    .btn-cat {
+      background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
+      box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3);
+    }
+
+    .btn-cat:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(107, 33, 168, 0.4);
     }
 
     footer {
-      background: #5f351c;
+      background: #2d3748;
       color: white;
       padding: 25px;
-      margin-top: 30px;
+      margin-top: 50px;
     }
-
   </style>
 </head>
 
@@ -117,7 +171,7 @@
 
   <header>
 
-    <nav>
+    <nav translate="no">
       <a href="index.html">🏠 صفحه اصلی</a>
       <a href="dogs.html">🐶 دنیای سگ‌ها</a>
       <a href="cats.html">🐱 دنیای گربه‌ها</a>
@@ -133,7 +187,6 @@
     </p>
 
   </header>
-
 
   <main>
 
@@ -156,7 +209,6 @@
       </p>
 
     </div>
-
 
     <div class="card" id="about">
 
@@ -181,55 +233,47 @@
 
     </div>
 
-
     <div class="card">
 
       <h2>ما چه کارهایی انجام می‌دهیم؟ 🐾</h2>
 
       <h3>🐶 معرفی سگ‌ها</h3>
-
       <p>
         در بخش سگ‌ها درباره ویژگی‌های سگ‌ها، نژادهای گوناگون، روش
         نگهداری، فعالیت، آموزش و غذا دادن توضیح داده می‌شود.
       </p>
 
       <h3>🐱 معرفی گربه‌ها</h3>
-
       <p>
         در بخش گربه‌ها می‌توانید با رفتار گربه‌ها، نژادهای مختلف،
         نگهداری، نظافت، بازی و غذای مناسب آن‌ها آشنا شوید.
       </p>
 
       <h3>🐕 معرفی نژادها</h3>
-
       <p>
         در سایت، نژادهای مختلف سگ و گربه معرفی می‌شوند و درباره
         ظاهر، ویژگی‌های معمول و نیازهای آن‌ها توضیح داده می‌شود.
       </p>
 
       <h3>🏠 آموزش نگهداری</h3>
-
       <p>
         درباره آماده کردن محیط مناسب، جای خواب، آب تمیز، نظافت،
         فعالیت و مراقبت از حیوانات اطلاعات قرار می‌دهیم.
       </p>
 
       <h3>🍲 راهنمای غذا</h3>
-
       <p>
         درباره اهمیت غذای مناسب، آب تازه، وعده‌های غذایی و احتیاط
         درباره خوراکی‌های نامناسب توضیح داده می‌شود.
       </p>
 
       <h3>❤️ تشویق به مراقبت مسئولانه</h3>
-
       <p>
         هدف ما این است که اهمیت مهربانی، مسئولیت‌پذیری و مراقبت درست
         از حیوانات بیشتر شناخته شود.
       </p>
 
     </div>
-
 
     <div class="card">
 
@@ -241,18 +285,17 @@
 
       <div class="buttons">
 
-        <a href="dogs.html">
+        <a href="dogs.html" class="btn-dog">
           🐶 ورود به دنیای سگ‌ها
         </a>
 
-        <a href="cats.html">
+        <a href="cats.html" class="btn-cat">
           🐱 ورود به دنیای گربه‌ها
         </a>
 
       </div>
 
     </div>
-
 
     <div class="card">
 
@@ -268,7 +311,7 @@
         بشناسند و درباره نگهداری از آن‌ها آگاهانه‌تر تصمیم بگیرند.
       </p>
 
-      <p style="text-align: center; font-size: 20px;">
+      <p style="text-align: center; font-size: 20px; font-weight: bold; margin-top: 20px;">
         🐶🐱 با مهربانی و مسئولیت از حیوانات مراقبت کنیم 🐾
       </p>
 
@@ -276,14 +319,13 @@
 
   </main>
 
-
   <footer>
 
     <p>
       🐾 دنیای سگ و گربه | سایت آموزشی درباره حیوانات
     </p>
 
-    <p>
+    <p style="margin-top: 10px; opacity: 0.8;">
       ساخته شده با ❤️
     </p>
 
