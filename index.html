@@ -1,300 +1,451 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIT3 HACKED 😈</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#422318">
+<meta name="description" content="دنیای سگ و گربه؛ راهنمای نگهداری، تغذیه، واکسیناسیون و انتخاب اسم حیوانات خانگی">
+<title>دنیای سگ و گربه 🐱🐶</title>
 
-  <style>
-    :root {
-      --bg-color: linear-gradient(135deg, #fbf7f5 0%, #eef2f5 100%);
-      --text-color: #2d3748;
-      --card-bg: white;
-      --header-bg: linear-gradient(135deg, #6b3e2e 0%, #4a281e 100%);
-      --box-bg: #fdf8f5;
-      --border-color: rgba(0, 0, 0, 0.05);
-      --nav-bg: rgba(255, 255, 255, 0.85);
-      --nav-text: #4a5568;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
 
-    /* استایل تم تاریک */
-    body.dark-mode {
-      --bg-color: linear-gradient(135deg, #121212 0%, #1e1e24 100%);
-      --text-color: #e2e8f0;
-      --card-bg: #1e1e2d;
-      --header-bg: linear-gradient(135deg, #2a1b18 0%, #1a0f0d 100%);
-      --box-bg: #2d2b38;
-      --border-color: rgba(255, 255, 255, 0.05);
-      --nav-bg: rgba(30, 30, 45, 0.85);
-      --nav-text: #cbd5e1;
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      text-align: center;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    header {
-      background: var(--header-bg);
-      color: white;
-      padding: 50px 20px 60px;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    nav {
-      position: sticky;
-      top: 15px;
-      z-index: 1000;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      max-width: 850px;
-      margin: 0 auto 30px auto;
-      padding: 10px 15px;
-      border-radius: 50px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    nav a {
-      color: var(--nav-text);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 8px 16px;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      background: #6b3e2e;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .theme-toggle-btn {
-      background: #6b3e2e;
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: bold;
-      transition: transform 0.2s ease;
-    }
-    .theme-toggle-btn:hover { transform: scale(1.05); }
-
-    .animals { font-size: 80px; animation: float 3s ease-in-out infinite; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-    h1 { font-size: 40px; margin-top: 15px; }
-    main { max-width: 850px; margin: auto; padding: 20px; }
-
-    .card {
-      background: var(--card-bg);
-      margin: 30px 0;
-      padding: 30px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid var(--border-color);
-      text-align: right;
-      line-height: 2;
-      transition: background 0.3s ease;
-    }
-
-    .card h2 { text-align: center; color: #d97706; font-size: 26px; }
-
-    .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 25px; }
-    .buttons a {
-      text-decoration: none;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .btn-dog { background: linear-gradient(135deg, #8b4513 0%, #5c2c06 100%); }
-    .btn-cat { background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%); }
-    .buttons a:hover { transform: translateY(-3px); }
-
-    .box-style {
-      background: var(--box-bg);
-      border-right: 4px solid #d97706;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 15px;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 8px 0;
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      background: #6b3e2e;
-      color: white;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    footer { background: #1a202c; color: white; padding: 25px; margin-top: 50px; }
-  </style>
+:root {
+  --bg:#fff9f1;
+  --card:#ffffff;
+  --text:#382b27;
+  --muted:#806e64;
+  --brown:#48271b;
+  --orange:#ff9d42;
+  --line:#f1e3d5;
+  --shadow:0 10px 30px #512d160c;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  transition:background .3s,color .3s;
+}
+body.dark{
+  --bg:#171512;--card:#25211e;--text:#fff1e4;
+  --muted:#c5b1a3;--brown:#24140f;
+  --line:#40342d;--shadow:0 10px 30px #0002;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+header{
+  position:sticky;top:0;z-index:10;background:var(--brown);
+  color:#fff;box-shadow:0 4px 20px #0002;
+}
+.nav{
+  max-width:1400px;margin:auto;padding:12px 4%;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.logo{font-size:21px;font-weight:800;color:#ffd2a4;white-space:nowrap}
+.links{display:flex;gap:19px;align-items:center;flex-wrap:wrap}
+.links a{font-size:13px;transition:.2s}
+.links a:hover{color:#ffb66f}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.icon-btn{
+  background:#ffffff18;border:1px solid #ffffff30;
+  color:white;border-radius:12px;padding:9px 12px;
+}
+.menu-btn{display:none}
+.hero{
+  min-height:330px;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:25px;padding:35px 7%;
+  background:linear-gradient(120deg,#f8d7b7,#fff1df 60%,#f5d6b7);
+  overflow:hidden;
+}
+.hero-copy{max-width:600px}
+.hero h1{font-size:clamp(30px,4vw,53px);color:#622c17;margin:0 0 15px}
+.hero p{line-height:2.1;color:#684638}
+.hero-img{
+  width:100%;height:280px;object-fit:cover;border-radius:35px;
+  box-shadow:0 15px 35px #60331925;
+}
+.primary{
+  display:inline-block;border:0;border-radius:30px;
+  padding:12px 27px;background:#813b16;color:white;
+  font-weight:700;margin-top:10px;transition:.2s;
+}
+.primary:hover{transform:translateY(-3px);background:#a54d1e}
+.container{max-width:1320px;margin:auto;padding:28px 4%}
+.section-title{font-size:24px;margin:15px 0 20px}
+.shortcuts{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
+}
+.shortcut{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:18px 10px;text-align:center;box-shadow:var(--shadow);
+  transition:.2s;
+}
+.shortcut:hover{transform:translateY(-4px);border-color:#f2ad72}
+.shortcut span{font-size:29px;display:block;margin-bottom:8px}
+.shortcut strong{font-size:14px}
+.shortcut small{display:block;color:var(--muted);margin-top:5px}
+.categories{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:25px;
+}
+.category{
+  min-height:245px;border-radius:24px;padding:25px;
+  display:flex;align-items:center;gap:15px;overflow:hidden;
+  color:white;box-shadow:var(--shadow);
+}
+.category.dog{background:linear-gradient(120deg,#a44917,#e78a40)}
+.category.cat{background:linear-gradient(120deg,#864c70,#e7a9b8)}
+.category .emoji{font-size:90px}
+.category h3{font-size:27px;margin:0 0 8px}
+.category p{line-height:2;font-size:14px}
+.category a{
+  display:inline-block;background:#37180e66;padding:9px 15px;
+  border-radius:22px;border:1px solid #ffffff65;font-size:13px;
+}
+.layout{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-top:35px}
+.articles{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.article{
+  border-radius:18px;overflow:hidden;background:var(--card);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.article .photo{height:135px;display:grid;place-items:center;background:#f8e5d3;font-size:65px}
+.article-content{padding:15px}
+.tag{font-size:11px;color:#bd672d;font-weight:700}
+.article h3{font-size:15px;line-height:1.9}
+.article p{font-size:12px;color:var(--muted);line-height:2}
+.read{
+  color:#c96b2a;border:0;background:none;font-weight:700;padding:0;
+}
+.quick,.night{
+  padding:23px;border-radius:22px;background:var(--card);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.quick a{
+  display:block;padding:13px;margin-top:8px;border-radius:12px;
+  background:var(--bg);font-size:14px;
+}
+.quick a:hover{color:#e78a40}
+.night{margin-top:20px;background:#211b35;color:white}
+.night p{line-height:2;color:#e3d9e8;font-size:13px}
+.search-box{
+  display:flex;gap:10px;max-width:500px;margin:0 auto 25px;
+}
+.search-box input{
+  flex:1;min-width:0;padding:13px 17px;border-radius:14px;
+  border:1px solid var(--line);background:var(--card);color:var(--text);
+  outline:none;
+}
+.search-box input:focus{border-color:#e99b5b}
+footer{
+  background:var(--brown);color:#ffe0c1;padding:28px 5%;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  align-items:center;margin-top:30px;font-size:13px;
+}
+.top{
+  position:fixed;bottom:20px;left:20px;border:0;border-radius:50%;
+  width:48px;height:48px;background:#813b16;color:white;font-size:22px;
+  box-shadow:var(--shadow);z-index:5;
+}
+.hidden{display:none!important}
+@media(max-width:900px){
+  .nav{flex-wrap:wrap}
+  .links{gap:12px}
+  .shortcuts{grid-template-columns:repeat(3,1fr)}
+  .layout{grid-template-columns:1fr}
+  .articles{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:620px){
+  .nav{padding:12px 4%}
+  .logo{font-size:17px}
+  .menu-btn{display:block}
+  .links{display:none;width:100%;flex-direction:column;align-items:stretch}
+  .links.open{display:flex}
+  .links a{padding:9px}
+  .hero{grid-template-columns:1fr;padding:30px 6%;text-align:center}
+  .hero-img{height:210px;grid-row:1}
+  .hero h1{font-size:32px}
+  .shortcuts{grid-template-columns:repeat(2,1fr)}
+  .categories{grid-template-columns:1fr}
+  .category{min-height:210px;padding:18px}
+  .category .emoji{font-size:65px}
+  .category h3{font-size:23px}
+  .articles{grid-template-columns:1fr}
+  .article{display:grid;grid-template-columns:115px 1fr}
+  .article .photo{height:100%;min-height:150px;font-size:50px}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
 </head>
 
 <body>
-
-  <header id="top">
-    <nav translate="no">
-      <a href="index.html">🏠 اصلی</a>
-      <a href="dogs.html">🐶 سگ‌ها</a>
-      <a href="cats.html">🐱 گربه‌ها</a>
-      <a href="#vaccine">💉 واکسیناسیون</a>
-      <a href="#name-gen">🎨 پیشنهاد اسم</a>
-      <a href="#checklist">✅ چک‌لیست</a>
-      <button class="theme-toggle-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
-    </nav>
-    <div class="animals">🐶🐱</div>
-    <h1>دنیای سگ و گربه</h1>
-    <p>آشنایی با حیوانات دوست‌داشتنی، ابزارهای سرگرم‌کننده و راهنمای نگهداری 🐾</p>
-  </header>
-
-  <main>
-
-    <div class="card">
-      <h2>به دنیای سگ و گربه خوش آمدید! 🐶🐱</h2>
-      <p>این سایت مرجعی ساده و مدرن برای یادگیری ویژگی‌های سگ‌ها و گربه‌ها، انتخاب اسم، یادآوری زمان واکسن و چک‌لیست خرید است.</p>
+<header>
+  <nav class="nav">
+    <a href="#home" class="logo">🐾 دنیای سگ و گربه</a>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="باز کردن منو">☰</button>
+    <div class="links" id="links">
+      <a href="#home">🏠 خانه</a>
+      <a href="#dogs">🐶 سگ‌ها</a>
+      <a href="#cats">🐱 گربه‌ها</a>
+      <a href="#vaccines">💉 واکسیناسیون</a>
+      <a href="#names">✨ اسم‌های پیشنهادی</a>
+      <a href="#care">📚 راهنمای نگهداری</a>
+      <a href="#about">درباره ما</a>
     </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="تغییر حالت">🌙</button>
+    </div>
+  </nav>
+</header>
 
-    <!-- ابزار یادآور واکسیناسیون -->
-    <div class="card" id="vaccine">
-      <h2>💉 محاسبه‌گر و یادآور نوبت واکسن بعدی</h2>
-      <div class="box-style" style="text-align: center;">
-        <p>تاریخ آخرین واکسن حیوان خانگی‌تان را وارد کنید تا نوبت واکسن یادآور بعدی مشخص شود:</p>
-        <input type="date" id="lastVaccineDate" style="padding: 10px; border-radius: 8px; margin: 10px; font-family: inherit;">
-        <br>
-        <button onclick="calculateVaccine()" style="background: #d97706; color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: bold; cursor: pointer;">محاسبه زمان واکسن بعدی 📅</button>
-        <h3 id="vaccineResult" style="color: #d97706; margin-top: 15px;"></h3>
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <h1>🐾 دنیای سگ و گربه</h1>
+    <p>آشنایی با حیوانات دوست‌داشتنی، آموزش، مراقبت و لذت بردن از دنیای آن‌ها.</p>
+    <p>اینجا همه‌چیز درباره سگ‌ها و گربه‌هاست؛ از نگهداری تا آموزش و سلامت!</p>
+    <a class="primary" href="#explore">شروع کنید ←</a>
+  </div>
+  <img class="hero-img"
+    src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1000&q=85"
+    alt="سگ دوست‌داشتنی در فضای باز"
+    onerror="this.style.display='none'">
+</section>
+
+<div class="container" id="explore">
+  <div class="shortcuts">
+    <a class="shortcut" href="#care"><span>❤️</span><strong>مراقبت ویژه</strong><small>نکات سلامت حیوانات</small></a>
+    <a class="shortcut" href="#vaccines"><span>💉</span><strong>واکسیناسیون</strong><small>پیشگیری از بیماری‌ها</small></a>
+    <a class="shortcut" href="#names"><span>🐾</span><strong>اسم‌های پیشنهادی</strong><small>برای سگ و گربه</small></a>
+    <a class="shortcut" href="#care"><span>📖</span><strong>راهنمای نگهداری</strong><small>تغذیه و آموزش</small></a>
+    <a class="shortcut" href="#facts"><span>⭐</span><strong>حقایق جالب</strong><small>دنیای حیوانات</small></a>
+  </div>
+
+  <h2 class="section-title">دوست‌های پشمالوی ما 🐾</h2>
+  <div class="categories">
+    <section class="category dog" id="dogs">
+      <div class="emoji">🐕</div>
+      <div>
+        <h3>سگ‌ها</h3>
+        <strong>همراهان وفادار و مهربان</strong>
+        <p>با نژادها، ویژگی‌ها، تغذیه و روش‌های نگهداری سگ‌ها آشنا شوید.</p>
+        <a href="#care">راهنمای سگ‌ها ←</a>
       </div>
-    </div>
-
-    <!-- بخش پیشنهاد اسم هوشمند -->
-    <div class="card" id="name-gen">
-      <h2>🎨 پیشنهاددهنده هوشمند اسم حیوان خانگی</h2>
-      <div class="box-style" style="text-align: center;">
-        <p>نوع حیوان و جنسیت را انتخاب کنید تا پیشنهادهای شیک دریافت کنید:</p>
-        <select id="petType" style="padding: 10px; border-radius: 8px; margin: 5px;">
-          <option value="dog">سگ 🐶</option>
-          <option value="cat">گربه 🐱</option>
-        </select>
-        <select id="petGender" style="padding: 10px; border-radius: 8px; margin: 5px;">
-          <option value="male">پسر ♂️</option>
-          <option value="female">دختر ♀️</option>
-        </select>
-        <br><br>
-        <button onclick="generateName()" style="background: #6b3e2e; color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: bold; cursor: pointer;">پیشنهاد اسم 🎲</button>
-        <h3 id="nameResult" style="color: #6b3e2e; margin-top: 15px;"></h3>
+    </section>
+    <section class="category cat" id="cats">
+      <div class="emoji">🐈</div>
+      <div>
+        <h3>گربه‌ها</h3>
+        <strong>زیبا، مستقل و دوست‌داشتنی</strong>
+        <p>رفتارها، تغذیه، بازی و نکات مهم نگهداری از گربه‌ها را بشناسید.</p>
+        <a href="#care">راهنمای گربه‌ها ←</a>
       </div>
-    </div>
+    </section>
+  </div>
 
-    <!-- بخش چک‌لیست خرید وسایل -->
-    <div class="card" id="checklist">
-      <h2>✅ چک‌لیست تعاملی وسایل ضروری حیوان خانگی</h2>
-      <p>قبل از ورود حیوان به خانه، مطمئن شوید وسایل زیر را آماده کرده‌اید:</p>
-      <div class="box-style">
-        <div class="checklist-item"><input type="checkbox" id="c1"> <label for="c1">🍲 ظرف آب و غذای استیل یا سرامیکی</label></div>
-        <div class="checklist-item"><input type="checkbox" id="c2"> <label for="c2">🛏️ جای خواب نرم و قابل شست‌وشو</label></div>
-        <div class="checklist-item"><input type="checkbox" id="c3"> <label for="c3">🪮 برس و شانه مخصوص موها</label></div>
-        <div class="checklist-item"><input type="checkbox" id="c4"> <label for="c4">📦 باکس یا کیف مخصوص حمل و نقل</label></div>
-        <div class="checklist-item"><input type="checkbox" id="c5"> <label for="c5">🧻 ظرف خاک و خاک مخصوص (برای گربه‌ها) / قلاده (برای سگ‌ها)</label></div>
-        <div class="checklist-item"><input type="checkbox" id="c6"> <label for="c6">🎾 اسباب‌بازی‌های سرگرم‌کننده و ایمن</label></div>
+  <h2 class="section-title" id="care">📚 راهنمای نگهداری</h2>
+  <div class="search-box">
+    <input id="search" type="search" placeholder="🔎 جست‌وجو در مطالب سایت..." aria-label="جست‌وجو در مطالب">
+  </div>
+
+  <div class="layout">
+    <section>
+      <div class="articles" id="articleList">
+        <article class="article" data-search="گربه تغذیه غذای مناسب بچه گربه">
+          <div class="photo">🐱</div>
+          <div class="article-content">
+            <span class="tag">گربه‌ها</span>
+            <h3>چگونه گربه‌مان را درست تغذیه کنیم؟</h3>
+            <p>غذای مناسب و آب تازه نقش مهمی در سلامت گربه‌ها دارند.</p>
+            <button class="read" data-article="foodcat">مطالعه مطلب ←</button>
+          </div>
+        </article>
+
+        <article class="article" data-search="سگ واکسن واکسیناسیون مراقبت سلامت">
+          <div class="photo">🐕</div>
+          <div class="article-content">
+            <span class="tag">سگ‌ها</span>
+            <h3>مراقبت‌های بعد از واکسن در سگ‌ها</h3>
+            <p>درباره مراقبت‌های معمول بعد از واکسیناسیون بیشتر بدانید.</p>
+            <button class="read" data-article="vaccines">مطالعه مطلب ←</button>
+          </div>
+        </article>
+
+        <article class="article" data-search="اسم نام جذاب گربه">
+          <div class="photo">🐈</div>
+          <div class="article-content">
+            <span class="tag">اسم‌ها</span>
+            <h3>۱۰ اسم خاص و جذاب برای گربه‌ها</h3>
+            <p>لونا، میلو، برفی و چند پیشنهاد دوست‌داشتنی دیگر!</p>
+            <button class="read" data-article="names">مطالعه مطلب ←</button>
+          </div>
+        </article>
+
+        <article class="article" data-search="بازی آموزش سگ پیاده روی">
+          <div class="photo">🦴</div>
+          <div class="article-content">
+            <span class="tag">آموزش</span>
+            <h3>چطور با سگ خود بازی کنیم؟</h3>
+            <p>بازی روزانه و آموزش مثبت به سلامت و ارتباط بهتر کمک می‌کند.</p>
+            <button class="read" data-article="play">مطالعه مطلب ←</button>
+          </div>
+        </article>
+
+        <article class="article" data-search="سلامت گربه دامپزشک">
+          <div class="photo">🩺</div>
+          <div class="article-content">
+            <span class="tag">سلامت</span>
+            <h3>چه زمانی به دامپزشک مراجعه کنیم؟</h3>
+            <p>تغییر رفتار و اشتهای حیوان می‌تواند نیازمند بررسی باشد.</p>
+            <button class="read" data-article="health">مطالعه مطلب ←</button>
+          </div>
+        </article>
+
+        <article class="article" data-search="حقیقت جالب حیوانات سگ گربه">
+          <div class="photo">✨</div>
+          <div class="article-content">
+            <span class="tag">حقایق جالب</span>
+            <h3>چند حقیقت جالب درباره حیوانات</h3>
+            <p>با رفتارها و توانایی‌های شگفت‌انگیز حیوانات آشنا شوید.</p>
+            <button class="read" data-article="facts">مطالعه مطلب ←</button>
+          </div>
+        </article>
       </div>
-    </div>
+      <p id="noResults" class="hidden">مطلبی پیدا نشد؛ عبارت دیگری را امتحان کن! 🐾</p>
+    </section>
 
-    <div class="card">
-      <h2>ورود به بخش اختصاصی 🐾</h2>
-      <div class="buttons">
-        <a href="dogs.html" class="btn-dog">🐶 دنیای سگ‌ها</a>
-        <a href="cats.html" class="btn-cat">🐱 دنیای گربه‌ها</a>
+    <aside>
+      <div class="quick">
+        <h3>🐾 دسترسی سریع</h3>
+        <a href="#names">✨ اسم‌های پیشنهادی</a>
+        <a href="#vaccines">💉 واکسیناسیون</a>
+        <a href="#care">📚 راهنمای نگهداری</a>
+        <a href="#facts">⭐ حقایق جالب</a>
       </div>
+      <div class="night">
+        <h3>🌙 حالت تاریک</h3>
+        <p>برای مطالعه راحت‌تر در محیط کم‌نور، حالت تاریک سایت را فعال کن.</p>
+        <button class="icon-btn" id="nightBtn">فعال کردن حالت تاریک</button>
+      </div>
+    </aside>
+  </div>
+
+  <section id="vaccines">
+    <h2 class="section-title">💉 سلامت و واکسیناسیون</h2>
+    <div class="quick">
+      برنامه واکسن برای هر حیوان به سن، شرایط زندگی و سابقه سلامتی او بستگی دارد.
+      برای تنظیم برنامه مناسب، با دامپزشک مشورت کن.
     </div>
+  </section>
 
-  </main>
+  <section id="names">
+    <h2 class="section-title">✨ اسم‌های پیشنهادی</h2>
+    <div class="quick">
+      <p><strong>برای گربه:</strong> لونا، میلو، برفی، پشمک، فندق، نارنجی، پیشی و موکا.</p>
+      <p><strong>برای سگ:</strong> راکی، لئو، مکس، کوپر، برونو، تدی، بامبی و فندق.</p>
+    </div>
+  </section>
 
-  <a href="#top" class="back-to-top">↑</a>
+  <section id="facts">
+    <h2 class="section-title">⭐ حقایق جالب</h2>
+    <div class="quick">
+      <p>🐱 گربه‌ها با صداها و زبان بدن خود با انسان‌ها ارتباط برقرار می‌کنند.</p>
+      <p>🐶 سگ‌ها حس بویایی بسیار قدرتمندی دارند و از آن برای شناخت محیط استفاده می‌کنند.</p>
+      <p>🐾 هر حیوان شخصیت و نیازهای مخصوص به خودش را دارد.</p>
+    </div>
+  </section>
 
-  <footer>
-    <p>🐾 دنیای سگ و گربه | ساخته شده با ❤️</p>
-  </footer>
+  <section id="about">
+    <h2 class="section-title">💛 درباره دنیای سگ و گربه</h2>
+    <div class="quick">
+      هدف ما ارائه مطالب ساده و کاربردی برای آشنایی بهتر با حیوانات خانگی و نگهداری مسئولانه از آن‌هاست.
+      مطالب سلامت جایگزین تشخیص و توصیه دامپزشک نیستند.
+    </div>
+  </section>
+</div>
+</main>
 
-  <script>
-    // اسکریپت حالت شب و روز
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+<footer>
+  <div class="logo">🐾 دنیای سگ و گربه</div>
+  <div>با عشق به حیوانات ساخته شده است 💛</div>
+  <div>© <span id="year"></span> دنیای سگ و گربه</div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="بازگشت به بالا">↑</button>
+
+<script>
+const body = document.body;
+const themeBtn = document.getElementById('themeBtn');
+const nightBtn = document.getElementById('nightBtn');
+const menuBtn = document.getElementById('menuBtn');
+const links = document.getElementById('links');
+
+function setTheme(dark) {
+  body.classList.toggle('dark', dark);
+  themeBtn.textContent = dark ? '☀️' : '🌙';
+  nightBtn.textContent = dark ? 'فعال کردن حالت روشن' : 'فعال کردن حالت تاریک';
+  try { localStorage.setItem('pet-theme', dark ? 'dark' : 'light'); } catch(e) {}
+}
+try {
+  setTheme(localStorage.getItem('pet-theme') === 'dark');
+} catch(e) {
+  setTheme(false);
+}
+
+themeBtn.addEventListener('click', () => setTheme(!body.classList.contains('dark')));
+nightBtn.addEventListener('click', () => setTheme(!body.classList.contains('dark')));
+menuBtn.addEventListener('click', () => links.classList.toggle('open'));
+
+links.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => links.classList.remove('open'));
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.getElementById('topBtn').addEventListener('click', () => {
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+const search = document.getElementById('search');
+const articles = [...document.querySelectorAll('.article')];
+const noResults = document.getElementById('noResults');
+
+search.addEventListener('input', () => {
+  const query = search.value.trim().toLocaleLowerCase('fa');
+  let visible = 0;
+  articles.forEach(article => {
+    const content = (article.innerText + ' ' + article.dataset.search).toLocaleLowerCase('fa');
+    const match = content.includes(query);
+    article.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+  noResults.classList.toggle('hidden', visible !== 0);
+});
+
+const articleContent = {
+  foodcat: ['تغذیه مناسب گربه 🐱',
+    'برای گربه غذای کامل و متناسب با سنش انتخاب کن. آب تمیز همیشه در دسترسش باشد. تغییر رژیم غذایی را به‌آرامی انجام بده و برای نیازهای خاص با دامپزشک مشورت کن.'],
+  vaccines: ['مراقبت پس از واکسن 💉',
+    'بعد از واکسیناسیون، حیوان را زیر نظر داشته باش و آب و محیطی آرام در اختیارش بگذار. اگر علائم شدید یا غیرعادی دیدی، سریع با دامپزشک تماس بگیر.'],
+  names: ['اسم‌های جذاب برای گربه ✨',
+    'چند پیشنهاد: لونا، میلو، برفی، پشمک، فندق، موکا، نارنجی، تیله، پاپیون و پیشی. اسمی انتخاب کن که گفتنش راحت باشد و دوستش داشته باشی!'],
+  play: ['بازی و آموزش سگ 🦴',
+    'جلسه‌های کوتاه بازی، پیاده‌روی متناسب با شرایط سگ و آموزش همراه با تشویق می‌توانند به نشاط و یادگیری او کمک کنند.'],
+  health: ['چه زمانی دامپزشک لازم است؟ 🩺',
+    'تغییر شدید اشتها، بی‌حالی، مشکلات تنفسی یا نشانه‌های درد را جدی بگیر. در شرایط نگران‌کننده از دامپزشک کمک بگیر و درمان خودسرانه انجام نده.'],
+  facts: ['حقایق جالب درباره حیوانات ⭐',
+    'سگ‌ها و گربه‌ها از زبان بدن، بو و صدا برای شناخت محیط و برقراری ارتباط استفاده می‌کنند. مشاهده رفتار هر حیوان کمک می‌کند نیازهایش را بهتر بشناسی.']
+};
+
+document.querySelectorAll('[data-article]').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = articleContent[button.dataset.article];
+    if (item) {
+      alert(item[0] + '\n\n' + item[1]);
     }
-
-    // اسکریپت پیشنهاد اسم
-    const dogMaleNames = ["لئو", "توفی", "بفی", "ژوپیتر", "چارلی", "بندر", "تدی"];
-    const dogFemaleNames = ["لوسی", "بلا", "کوکو", "فندق", "مایا", "بانی", "دیزی"];
-    const catMaleNames = ["میلو", "سیمبا", "برفی", "پشمک", "فیگارو", "لئو", "اسکار"];
-    const catFemaleNames = ["لونا", "مولی", "پیشی", "عسل", "پنی", "نبات", "میا"];
-
-    function generateName() {
-      const type = document.getElementById('petType').value;
-      const gender = document.getElementById('petGender').value;
-      let names = [];
-
-      if (type === 'dog' && gender === 'male') names = dogMaleNames;
-      else if (type === 'dog' && gender === 'female') names = dogFemaleNames;
-      else if (type === 'cat' && gender === 'male') names = catMaleNames;
-      else names = catFemaleNames;
-
-      const randomName = names[Math.floor(Math.random() * names.length)];
-      document.getElementById('nameResult').innerText = `اسم پیشنهادی: « ${randomName} » ✨`;
-    }
-
-    // اسکریپت یادآور واکسیناسیون
-    function calculateVaccine() {
-      const inputDate = document.getElementById('lastVaccineDate').value;
-      const result = document.getElementById('vaccineResult');
-      
-      if (!inputDate) {
-        result.innerText = "لطفاً تاریخ واکسن قبلی را مشخص کنید.";
-        return;
-      }
-
-      const date = new Date(inputDate);
-      // اضافه کردن ۱ سال (۳۶۵ روز) برای واکسن یادآور سالانه
-      date.setFullYear(date.getFullYear() + 1);
-      
-      const nextDateStr = date.toISOString().split('T')[0];
-      result.innerText = `تاریخ موعد واکسن بعدی (یادآور سالانه): ${nextDateStr} 🐾`;
-    }
-  </script>
-
+  });
+});
+</script>
 </body>
 </html>
