@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -115,9 +114,7 @@ header{
 .tag{font-size:11px;color:#bd672d;font-weight:700}
 .article h3{font-size:15px;line-height:1.9}
 .article p{font-size:12px;color:var(--muted);line-height:2}
-.read{
-  color:#c96b2a;border:0;background:none;font-weight:700;padding:0;
-}
+.read{color:#c96b2a;border:0;background:none;font-weight:700;padding:0}
 .quick,.night{
   padding:23px;border-radius:22px;background:var(--card);
   border:1px solid var(--line);box-shadow:var(--shadow);
@@ -149,12 +146,68 @@ footer{
   box-shadow:var(--shadow);z-index:5;
 }
 .hidden{display:none!important}
+
+/* دانشنامه نژادها */
+.breed-toolbar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px;
+}
+.breed-toolbar input{
+  flex:1;min-width:180px;padding:13px 16px;border-radius:14px;
+  border:1px solid var(--line);background:var(--card);color:var(--text);
+}
+.breed-filter{
+  border:1px solid var(--line);background:var(--card);color:var(--text);
+  padding:11px 16px;border-radius:13px;
+}
+.breed-filter.active{background:#813b16;color:white;border-color:#813b16}
+.breed-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;
+}
+.breed-card{
+  overflow:hidden;border:1px solid var(--line);border-radius:18px;
+  background:var(--card);box-shadow:var(--shadow);transition:.2s;
+}
+.breed-card:hover{transform:translateY(-4px)}
+.breed-image{
+  width:100%;height:165px;object-fit:cover;background:#f8e5d3;
+  display:grid;place-items:center;font-size:60px;
+}
+.breed-info{padding:14px}
+.breed-info h3{margin:0 0 8px;font-size:16px}
+.breed-info p{font-size:12px;color:var(--muted);line-height:1.9}
+.breed-details{
+  border:0;border-radius:12px;background:#813b16;color:#fff;
+  padding:9px 13px;width:100%;
+}
+.breed-status{color:var(--muted);line-height:2;text-align:center;padding:20px}
+.breed-pagination{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:22px 0}
+.breed-pagination button{
+  border:1px solid var(--line);background:var(--card);color:var(--text);
+  border-radius:10px;padding:9px 13px;
+}
+.breed-pagination button.active{background:#813b16;color:white}
+.breed-modal{
+  display:none;position:fixed;inset:0;background:#0009;z-index:50;
+  align-items:center;justify-content:center;padding:18px;
+}
+.breed-modal.open{display:flex}
+.breed-modal-content{
+  width:min(560px,100%);max-height:85vh;overflow:auto;
+  background:var(--card);color:var(--text);border-radius:22px;padding:22px;
+  text-align:right;
+}
+.breed-modal-content img{width:100%;max-height:270px;object-fit:cover;border-radius:15px}
+.breed-close{
+  float:left;border:0;background:var(--bg);color:var(--text);
+  border-radius:10px;padding:8px 12px;
+}
 @media(max-width:900px){
   .nav{flex-wrap:wrap}
   .links{gap:12px}
   .shortcuts{grid-template-columns:repeat(3,1fr)}
   .layout{grid-template-columns:1fr}
   .articles{grid-template-columns:repeat(3,1fr)}
+  .breed-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(max-width:620px){
   .nav{padding:12px 4%}
@@ -175,7 +228,17 @@ footer{
   .article{display:grid;grid-template-columns:115px 1fr}
   .article .photo{height:100%;min-height:150px;font-size:50px}
   footer{flex-direction:column;text-align:center}
+  .breed-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .breed-image{height:125px}
+  .breed-info{padding:10px}
+  .breed-toolbar{flex-direction:column;align-items:stretch}
 }
+
+/* حالت تاریک */
+body.dark .hero{
+  background:linear-gradient(120deg,#35251d,#2b211c 60%,#3a281d);
+}
+body.dark .hero h1,body.dark .hero p{color:#ffe2c4}
 </style>
 </head>
 
@@ -188,6 +251,7 @@ footer{
       <a href="#home">🏠 خانه</a>
       <a href="#dogs">🐶 سگ‌ها</a>
       <a href="#cats">🐱 گربه‌ها</a>
+      <a href="#breeds">🐾 دانشنامه نژادها</a>
       <a href="#vaccines">💉 واکسیناسیون</a>
       <a href="#names">✨ اسم‌های پیشنهادی</a>
       <a href="#care">📚 راهنمای نگهداری</a>
@@ -230,7 +294,7 @@ footer{
         <h3>سگ‌ها</h3>
         <strong>همراهان وفادار و مهربان</strong>
         <p>با نژادها، ویژگی‌ها، تغذیه و روش‌های نگهداری سگ‌ها آشنا شوید.</p>
-        <a href="#care">راهنمای سگ‌ها ←</a>
+        <a href="#breeds" onclick="setBreedType('dog')">دیدن نژادهای سگ ←</a>
       </div>
     </section>
     <section class="category cat" id="cats">
@@ -239,10 +303,27 @@ footer{
         <h3>گربه‌ها</h3>
         <strong>زیبا، مستقل و دوست‌داشتنی</strong>
         <p>رفتارها، تغذیه، بازی و نکات مهم نگهداری از گربه‌ها را بشناسید.</p>
-        <a href="#care">راهنمای گربه‌ها ←</a>
+        <a href="#breeds" onclick="setBreedType('cat')">دیدن نژادهای گربه ←</a>
       </div>
     </section>
   </div>
+
+  <!-- دانشنامه نژادها -->
+  <section id="breeds">
+    <h2 class="section-title">🐾 دانشنامه نژادهای سگ و گربه</h2>
+    <p>نژاد مورد علاقه‌ات را جست‌وجو کن و اطلاعاتش را ببین.</p>
+
+    <div class="breed-toolbar">
+      <input id="breedSearch" type="search" placeholder="🔎 جست‌وجوی نژاد..." aria-label="جست‌وجوی نژاد">
+      <button class="breed-filter active" data-type="all">همه</button>
+      <button class="breed-filter" data-type="dog">🐶 فقط سگ‌ها</button>
+      <button class="breed-filter" data-type="cat">🐱 فقط گربه‌ها</button>
+    </div>
+
+    <p id="breedStatus" class="breed-status">در حال بارگذاری دانشنامه... 🐾</p>
+    <div id="breedGrid" class="breed-grid"></div>
+    <div id="breedPagination" class="breed-pagination"></div>
+  </section>
 
   <h2 class="section-title" id="care">📚 راهنمای نگهداری</h2>
   <div class="search-box">
@@ -374,6 +455,14 @@ footer{
 
 <button class="top" id="topBtn" aria-label="بازگشت به بالا">↑</button>
 
+<!-- پنجره اطلاعات نژاد -->
+<div class="breed-modal" id="breedModal" role="dialog" aria-modal="true" aria-labelledby="breedModalTitle">
+  <div class="breed-modal-content">
+    <button class="breed-close" id="breedClose" aria-label="بستن">✕ بستن</button>
+    <div id="breedModalBody"></div>
+  </div>
+</div>
+
 <script>
 const body = document.body;
 const themeBtn = document.getElementById('themeBtn');
@@ -387,6 +476,7 @@ function setTheme(dark) {
   nightBtn.textContent = dark ? 'فعال کردن حالت روشن' : 'فعال کردن حالت تاریک';
   try { localStorage.setItem('pet-theme', dark ? 'dark' : 'light'); } catch(e) {}
 }
+
 try {
   setTheme(localStorage.getItem('pet-theme') === 'dark');
 } catch(e) {
@@ -407,6 +497,7 @@ document.getElementById('topBtn').addEventListener('click', () => {
   window.scrollTo({top:0, behavior:'smooth'});
 });
 
+/* جست‌وجو در مطالب قبلی */
 const search = document.getElementById('search');
 const articles = [...document.querySelectorAll('.article')];
 const noResults = document.getElementById('noResults');
@@ -423,6 +514,7 @@ search.addEventListener('input', () => {
   noResults.classList.toggle('hidden', visible !== 0);
 });
 
+/* محتوای مطالب قبلی */
 const articleContent = {
   foodcat: ['تغذیه مناسب گربه 🐱',
     'برای گربه غذای کامل و متناسب با سنش انتخاب کن. آب تمیز همیشه در دسترسش باشد. تغییر رژیم غذایی را به‌آرامی انجام بده و برای نیازهای خاص با دامپزشک مشورت کن.'],
@@ -441,11 +533,251 @@ const articleContent = {
 document.querySelectorAll('[data-article]').forEach(button => {
   button.addEventListener('click', () => {
     const item = articleContent[button.dataset.article];
-    if (item) {
-      alert(item[0] + '\n\n' + item[1]);
-    }
+    if (item) alert(item[0] + '\n\n' + item[1]);
   });
 });
+
+/* دانشنامه نژادها */
+const breedGrid = document.getElementById('breedGrid');
+const breedStatus = document.getElementById('breedStatus');
+const breedSearch = document.getElementById('breedSearch');
+const breedPagination = document.getElementById('breedPagination');
+const breedModal = document.getElementById('breedModal');
+const breedModalBody = document.getElementById('breedModalBody');
+
+let allBreeds = [];
+let currentBreedType = 'all';
+let currentBreedPage = 1;
+const breedsPerPage = 12;
+
+const breedNamesFa = {
+  'labrador-retriever':'لابرادور رتریور',
+  'golden-retriever':'گلدن رتریور',
+  'german-shepherd':'ژرمن شپرد',
+  'bulldog':'بولداگ',
+  'poodle':'پودل',
+  'beagle':'بیگل',
+  'pug':'پاگ',
+  'rottweiler':'روتوایلر',
+  'husky':'هاسکی سیبری',
+  'chihuahua':'چی‌واوا',
+  'persian':'پرشین',
+  'maine-coon':'مین‌کون',
+  'siamese':'سیامی',
+  'bengal':'بنگال',
+  'ragdoll':'رگدال',
+  'sphynx':'اسفینکس',
+  'british-shorthair':'بریتیش شورت‌هیر',
+  'abyssinian':'حبشی',
+  'birman':'بیرمن',
+  'oriental':'اورینتال'
+};
+
+function formatBreedName(name) {
+  const key = name.toLowerCase().replaceAll('_','-').replaceAll(' ','-');
+  return breedNamesFa[key] || name.replaceAll('_',' ').replaceAll('-',' ');
+}
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  })[char]);
+}
+
+function setBreedType(type) {
+  currentBreedType = type;
+  currentBreedPage = 1;
+  document.querySelectorAll('.breed-filter').forEach(button => {
+    button.classList.toggle('active', button.dataset.type === type);
+  });
+  renderBreeds();
+}
+
+document.querySelectorAll('.breed-filter').forEach(button => {
+  button.addEventListener('click', () => setBreedType(button.dataset.type));
+});
+
+breedSearch.addEventListener('input', () => {
+  currentBreedPage = 1;
+  renderBreeds();
+});
+
+function getFilteredBreeds() {
+  const query = breedSearch.value.trim().toLocaleLowerCase('fa');
+  return allBreeds.filter(breed => {
+    const matchesType = currentBreedType === 'all' || breed.type === currentBreedType;
+    const searchable = (
+      breed.name + ' ' + breed.faName + ' ' + (breed.origin || '')
+    ).toLocaleLowerCase('fa');
+    return matchesType && searchable.includes(query);
+  });
+}
+
+function renderBreeds() {
+  const filtered = getFilteredBreeds();
+  const totalPages = Math.max(1, Math.ceil(filtered.length / breedsPerPage));
+
+  if (currentBreedPage > totalPages) currentBreedPage = totalPages;
+
+  const start = (currentBreedPage - 1) * breedsPerPage;
+  const pageItems = filtered.slice(start, start + breedsPerPage);
+
+  breedGrid.innerHTML = '';
+  breedPagination.innerHTML = '';
+
+  if (!allBreeds.length) {
+    breedStatus.textContent = 'دانشنامه بارگذاری نشده است. اتصال اینترنت را بررسی و صفحه را دوباره بارگذاری کن.';
+    return;
+  }
+
+  if (!filtered.length) {
+    breedStatus.textContent = 'نژادی پیدا نشد؛ عبارت دیگری را جست‌وجو کن. 🐾';
+    return;
+  }
+
+  breedStatus.textContent =
+    `نمایش ${start + 1} تا ${Math.min(start + breedsPerPage, filtered.length)} از ${filtered.length} نژاد`;
+
+  pageItems.forEach(breed => {
+    const card = document.createElement('article');
+    card.className = 'breed-card';
+
+    const image = breed.image
+      ? `<img class="breed-image" src="${escapeHTML(breed.image)}" alt="${escapeHTML(breed.faName)}" loading="lazy" onerror="this.outerHTML='<div class=&quot;breed-image&quot;>🐾</div>'">`
+      : `<div class="breed-image">${breed.type === 'dog' ? '🐕' : '🐈'}</div>`;
+
+    card.innerHTML = `
+      ${image}
+      <div class="breed-info">
+        <span class="tag">${breed.type === 'dog' ? '🐶 نژاد سگ' : '🐱 نژاد گربه'}</span>
+        <h3>${escapeHTML(breed.faName)}</h3>
+        <p>${escapeHTML(breed.origin ? 'خاستگاه: ' + breed.origin : 'برای آشنایی با این نژاد بیشتر بخوانید.')}</p>
+        <button class="breed-details" type="button">مشاهده اطلاعات</button>
+      </div>
+    `;
+
+    card.querySelector('.breed-details').addEventListener('click', () => openBreedDetails(breed));
+    breedGrid.appendChild(card);
+  });
+
+  for (let page = 1; page <= totalPages; page++) {
+    const button = document.createElement('button');
+    button.textContent = page.toLocaleString('fa-IR');
+    button.classList.toggle('active', page === currentBreedPage);
+    button.addEventListener('click', () => {
+      currentBreedPage = page;
+      renderBreeds();
+      document.getElementById('breeds').scrollIntoView({behavior:'smooth'});
+    });
+    breedPagination.appendChild(button);
+  }
+}
+
+function openBreedDetails(breed) {
+  const description = breed.description ||
+    'اطلاعات این نژاد در منبع عمومی محدود است. برای شناخت دقیق‌تر خلق‌وخو، نیازهای حرکتی و مراقبت‌های سلامتی آن از منابع معتبر و دامپزشک کمک بگیر.';
+
+  breedModalBody.innerHTML = `
+    ${breed.image ? `<img src="${escapeHTML(breed.image)}" alt="${escapeHTML(breed.faName)}">` : ''}
+    <h2 id="breedModalTitle">${escapeHTML(breed.faName)}</h2>
+    <p><strong>نوع:</strong> ${breed.type === 'dog' ? 'سگ 🐶' : 'گربه 🐱'}</p>
+    ${breed.origin ? `<p><strong>خاستگاه:</strong> ${escapeHTML(breed.origin)}</p>` : ''}
+    ${breed.temperament ? `<p><strong>ویژگی‌های رفتاری:</strong> ${escapeHTML(breed.temperament)}</p>` : ''}
+    ${breed.life ? `<p><strong>طول عمر تقریبی:</strong> ${escapeHTML(breed.life)}</p>` : ''}
+    ${breed.weight ? `<p><strong>وزن تقریبی:</strong> ${escapeHTML(breed.weight)}</p>` : ''}
+    <p>${escapeHTML(description)}</p>
+    <p><small>این اطلاعات برای آشنایی عمومی است؛ نیازهای هر حیوان ممکن است متفاوت باشد.</small></p>
+  `;
+  breedModal.classList.add('open');
+}
+
+function closeBreedModal() {
+  breedModal.classList.remove('open');
+}
+
+document.getElementById('breedClose').addEventListener('click', closeBreedModal);
+breedModal.addEventListener('click', event => {
+  if (event.target === breedModal) closeBreedModal();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeBreedModal();
+});
+
+async function loadBreeds() {
+  const results = await Promise.allSettled([
+    fetch('https://dog.ceo/api/breeds/list/all').then(response => {
+      if (!response.ok) throw new Error('Dogs API unavailable');
+      return response.json();
+    }),
+    fetch('https://api.thecatapi.com/v1/breeds').then(response => {
+      if (!response.ok) throw new Error('Cats API unavailable');
+      return response.json();
+    })
+  ]);
+
+  const loaded = [];
+
+  if (results[0].status === 'fulfilled' && results[0].value.status === 'success') {
+    const dogGroups = results[0].value.message;
+    Object.entries(dogGroups).forEach(([breed, subBreeds]) => {
+      if (subBreeds.length) {
+        subBreeds.forEach(sub => {
+          const name = `${sub} ${breed}`;
+          loaded.push({
+            id: `dog-${name}`,
+            type: 'dog',
+            name,
+            faName: formatBreedName(name),
+            image: '',
+            description: 'سگ‌ها به آموزش مثبت، تغذیه مناسب، فعالیت و مراقبت منظم نیاز دارند.'
+          });
+        });
+      } else {
+        loaded.push({
+          id: `dog-${breed}`,
+          type: 'dog',
+          name: breed,
+          faName: formatBreedName(breed),
+          image: '',
+          description: 'سگ‌ها به آموزش مثبت، تغذیه مناسب، فعالیت و مراقبت منظم نیاز دارند.'
+        });
+      }
+    });
+  }
+
+  if (results[1].status === 'fulfilled' && Array.isArray(results[1].value)) {
+    results[1].value.forEach(cat => {
+      loaded.push({
+        id: `cat-${cat.id}`,
+        type: 'cat',
+        name: cat.name || 'گربه',
+        faName: formatBreedName(cat.name || 'گربه'),
+        image: cat.image?.url || '',
+        origin: cat.origin || '',
+        temperament: cat.temperament || '',
+        life: cat.life_span ? `${cat.life_span} سال` : '',
+        weight: cat.weight?.metric ? `${cat.weight.metric} کیلوگرم` : '',
+        description: cat.description || ''
+      });
+    });
+  }
+
+  allBreeds = loaded;
+
+  if (!allBreeds.length) {
+    breedStatus.textContent = 'فعلاً اتصال به منابع نژادها ممکن نشد. اینترنت را بررسی و صفحه را دوباره بارگذاری کن.';
+    return;
+  }
+
+  breedStatus.textContent = '';
+  renderBreeds();
+}
+
+loadBreeds();
 </script>
 </body>
 </html>
