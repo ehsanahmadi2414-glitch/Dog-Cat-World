@@ -1,325 +1,153 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دنیای گربه‌ها 🐱</title>
-
-  <style>
-    :root {
-      --bg-color: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%);
-      --text-color: #2d3748;
-      --card-bg: white;
-      --header-bg: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
-      --calc-bg: #fbf5ff;
-      --calc-border: #e9d5ff;
-      --border-color: rgba(0, 0, 0, 0.05);
-      --nav-bg: rgba(255, 255, 255, 0.85);
-      --nav-text: #4a5568;
-      --table-border: #edf2f7;
-    }
-
-    /* استایل تم تاریک */
-    body.dark-mode {
-      --bg-color: linear-gradient(135deg, #121212 0%, #1a1625 100%);
-      --text-color: #e2e8f0;
-      --card-bg: #1e1e2d;
-      --header-bg: linear-gradient(135deg, #321052 0%, #1e0b3d 100%);
-      --calc-bg: #291e36;
-      --calc-border: #4a2d68;
-      --border-color: rgba(255, 255, 255, 0.05);
-      --nav-bg: rgba(30, 30, 45, 0.85);
-      --nav-text: #cbd5e1;
-      --table-border: #2d3748;
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      text-align: center;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    header {
-      background: var(--header-bg);
-      color: white;
-      padding: 50px 20px 60px;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    nav {
-      position: sticky;
-      top: 15px;
-      z-index: 1000;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-      padding: 10px 15px;
-      border-radius: 50px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    nav a {
-      color: var(--nav-text);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 8px 16px;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover { background: #6b21a8; color: white; }
-
-    .theme-toggle-btn {
-      background: #6b21a8;
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: bold;
-      transition: transform 0.2s ease;
-    }
-    .theme-toggle-btn:hover { transform: scale(1.05); }
-
-    main { max-width: 850px; margin: auto; padding: 20px; }
-
-    .card {
-      background: var(--card-bg);
-      margin: 30px 0;
-      padding: 30px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid var(--border-color);
-      text-align: right;
-      line-height: 2;
-      transition: background 0.3s ease;
-    }
-
-    .card h2, .card h3 { text-align: center; color: #a855f7; }
-
-    .calc-box {
-      background: var(--calc-bg);
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid var(--calc-border);
-      text-align: center;
-    }
-
-    .table-container { overflow-x: auto; border-radius: 12px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    th, td { border: 1px solid var(--table-border); padding: 12px; text-align: center; }
-    th { background-color: #6b21a8; color: white; }
-
-    form { display: flex; flex-direction: column; gap: 15px; }
-
-    input, textarea {
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      font-family: inherit;
-    }
-
-    button {
-      background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      background: #6b21a8;
-      color: white;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 20px;
-    }
-
-    footer { background: #1a202c; color: white; padding: 25px; margin-top: 50px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="دنیای گربه‌ها؛ راهنمای نژادها، مراقبت، تغذیه و سلامت">
+<title>دنیای گربه‌ها | دنیای سگ و گربه</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+:root{--bg:#fff9f1;--card:#fff;--text:#382b27;--muted:#806e64;--brown:#48271b;--line:#f1e3d5;--shadow:0 10px 30px #512d160c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Vazirmatn',Tahoma,sans-serif;line-height:1.9;transition:background .3s,color .3s}
+body.dark{--bg:#171512;--card:#25211e;--text:#fff1e4;--muted:#c5b1a3;--brown:#24140f;--line:#40342d;--shadow:0 10px 30px #0002}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+header{position:sticky;top:0;z-index:10;background:var(--brown);color:#fff;box-shadow:0 4px 20px #0002}
+.nav{max-width:1200px;margin:auto;padding:12px 4%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{font-size:21px;font-weight:800;color:#ffd2a4;white-space:nowrap}
+.links{display:flex;gap:15px;align-items:center;flex-wrap:wrap}
+.links a{font-size:13px}
+.links a:hover{color:#ffb66f}
+.icon-btn,.primary{border:0;border-radius:14px;padding:10px 16px;background:#813b16;color:white;font-weight:700}
+.hero{padding:35px 5%;text-align:center;background:linear-gradient(120deg,#f8d7b7,#fff1df 60%,#f5d6b7)}
+.hero h1{font-size:clamp(30px,4vw,48px);color:#622c17;margin:0 0 10px}
+.hero p{max-width:800px;margin:10px auto;color:#684638}
+.hero-img{width:min(100%,850px);height:300px;object-fit:cover;border-radius:28px;margin-top:15px;box-shadow:0 15px 35px #60331925}
+.container{max-width:1200px;margin:auto;padding:26px 4%}
+.section-title{font-size:25px;margin:18px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+.card h3{margin-top:0;color:#a45121}
+.card p{margin-bottom:0}
+.tag{display:inline-block;background:#ffead5;color:#753715;border-radius:30px;padding:3px 10px;font-size:12px}
+.tip{padding:17px;border-radius:16px;background:#fff0d8;margin:18px 0}
+.search{width:100%;padding:13px 16px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:14px;margin:6px 0 18px}
+footer{text-align:center;padding:25px;background:var(--brown);color:#fff;margin-top:25px}
+footer a{color:#ffd2a4}
+.hidden{display:none!important}
+.contact{max-width:1000px;margin:25px auto;padding:24px 4%}
+@media(max-width:650px){.nav{justify-content:center}.links{justify-content:center}.hero-img{height:220px}.container{padding:20px 4%}}
+</style>
 </head>
-
 <body>
 
-  <header id="top">
-    <nav translate="no">
-      <a href="index.html">🏠 صفحه اصلی</a>
-      <a href="#about">🐱 درباره گربه‌ها</a>
-      <a href="#breeds">🐈 نژادها</a>
-      <a href="#calc">🧮 محاسبه سن</a>
-      <a href="#care">🏠 نگهداری</a>
-      <a href="#food">🍲 غذا دادن</a>
-      <a href="#contact">✉️ تماس با ما</a>
-      <button class="theme-toggle-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
-    </nav>
+<header>
+<nav class="nav">
+<a class="logo" href="index.html">🐾 دنیای سگ و گربه</a>
+<div class="links">
+<a href="index.html">🏠 صفحهٔ اصلی</a>
+<a href="dogs.html">🐶 سگ‌ها</a>
+<a href="cats.html">🐱 گربه‌ها</a>
+<a href="#breeds">نژادها</a>
+<a href="#care">نگهداری</a>
+<a href="#facts">دانستنی‌ها</a>
+<a href="#contact">📩 ارتباط با ما</a>
+</div>
+<button class="icon-btn" id="darkBtn" type="button">🌙 حالت شب</button>
+</nav>
+</header>
 
-    <div style="font-size: 80px;">🐱</div>
-    <h1>دنیای گربه‌ها</h1>
-    <p>همه‌چیز درباره گربه‌های دوست‌داشتنی 🐾</p>
-  </header>
+<section class="hero">
+<h1>🐱 دنیای گربه‌ها</h1>
+<p>با نژادها، رفتارها و نیازهای گربه‌ها آشنا شو و یاد بگیر چطور محیطی امن و سالم برایشان فراهم کنی.</p>
+<img class="hero-img" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=85" alt="گربهٔ دوست‌داشتنی" onerror="this.style.display='none'">
+</section>
 
-  <main>
+<main class="container">
+<section id="breeds">
+<h2 class="section-title">🐱 آشنایی با نژادها</h2>
+<div class="grid">
+<article class="card searchable"><span class="tag">نژاد</span><h3>پرشین</h3><p>موهای بلندی دارد و معمولاً به شانه‌کردن منظم و رسیدگی به چشم‌ها نیازمند است.</p></article>
+<article class="card searchable"><span class="tag">نژاد</span><h3>سیامی</h3><p>اغلب اجتماعی و پرحرف است و از تعامل و بازی لذت می‌برد.</p></article>
+<article class="card searchable"><span class="tag">نژاد</span><h3>بریتیش شورت‌هیر</h3><p>پوشش مویی کوتاه و بدن محکمی دارد؛ تغذیهٔ متعادل برایش مهم است.</p></article>
+<article class="card searchable"><span class="tag">نژاد</span><h3>مین‌کون</h3><p>از نژادهای بزرگ گربه است و به بازی و رسیدگی منظم به موها نیاز دارد.</p></article>
+<article class="card searchable"><span class="tag">نژاد</span><h3>اسکاتیش فولد</h3><p>گوش‌های تاخورده ویژگی ظاهری آن است؛ این نژاد ممکن است مشکلات مفصلی ارثی داشته باشد.</p></article>
+<article class="card searchable"><span class="tag">نژاد</span><h3>گربهٔ خانگی</h3><p>گربه‌های بدون نژاد مشخص هم می‌توانند همراهان دوست‌داشتنی باشند و شخصیت منحصربه‌فردی دارند.</p></article>
+</div>
+</section>
 
-    <div class="card" id="about">
-      <h2>گربه‌ها چه حیواناتی هستند؟ 🐱</h2>
-      <p>گربه‌ها حیواناتی باهوش، کنجکاو و مستقل هستند و مدت‌های طولانی در کنار انسان‌ها زندگی کرده‌اند. هر گربه شخصیت و رفتار مخصوص خودش را دارد.</p>
-    </div>
+<section id="care">
+<h2 class="section-title">❤️ راهنمای نگهداری</h2>
+<div class="grid">
+<article class="card searchable"><h3>🥣 تغذیه</h3><p>از غذای کامل مخصوص گربه استفاده کن؛ غذای سگ جایگزین مناسبی نیست و گربه‌ها به مواد مغذی ویژه‌ای نیاز دارند.</p></article>
+<article class="card searchable"><h3>💧 آب تازه</h3><p>آب تمیز همیشه در دسترس باشد و ظرف آب مرتب شسته شود.</p></article>
+<article class="card searchable"><h3>🧹 ظرف خاک</h3><p>ظرف خاک را مرتب تمیز کن و در مکانی آرام و قابل‌دسترسی قرار بده.</p></article>
+<article class="card searchable"><h3>🩺 سلامت</h3><p>واکسیناسیون، پیشگیری از انگل‌ها و معاینه‌های دوره‌ای را با دامپزشک انجام بده.</p></article>
+<article class="card searchable"><h3>🧶 بازی</h3><p>اسباب‌بازی امن، محل بالا رفتن و زمان بازی به سلامت ذهنی و جسمی کمک می‌کند.</p></article>
+<article class="card searchable"><h3>🏡 محیط امن</h3><p>پنجره و بالکن را ایمن کن و داروها، مواد شوینده و گیاهان سمی را دور از دسترس نگه دار.</p></article>
+</div>
+<div class="tip">💡 نکته: شیر گاو برای بسیاری از گربه‌ها مناسب نیست و ممکن است باعث ناراحتی گوارشی شود.</div>
+</section>
 
-    <div class="card" id="calc">
-      <h2>🧮 محاسبه‌گر سن گربه به سن انسانی</h2>
-      <div class="calc-box">
-        <label>سن گربه خود را به سال وارد کنید:</label>
-        <input type="number" id="catAge" placeholder="مثلاً: 2" min="1" max="25" style="width: 100%; margin: 10px 0;">
-        <button onclick="calculateCatAge()" style="width: 100%;">محاسبه سن انسانی</button>
-        <h3 id="catAgeResult" style="color: #a855f7; margin-top: 15px;"></h3>
-      </div>
-    </div>
+<section id="facts">
+<h2 class="section-title">✨ دانستنی‌های جالب</h2>
+<div class="grid">
+<article class="card searchable"><p>🐱 سبیل‌های گربه به آن کمک می‌کنند محیط اطراف را بهتر احساس کند.</p></article>
+<article class="card searchable"><p>🐱 خرخر همیشه به معنی خوشحالی نیست؛ گربه ممکن است هنگام اضطراب یا ناراحتی هم خرخر کند.</p></article>
+<article class="card searchable"><p>🐱 گربه‌ها برای احساس امنیت به محل استراحت آرام و فرصت دور شدن از شلوغی نیاز دارند.</p></article>
+</div>
+</section>
 
-    <div class="card" id="breeds">
-      <h2>آشنایی با نژادهای گوناگون گربه‌ها 🐈</h2>
+<section id="searchArea">
+<h2 class="section-title">🔎 جست‌وجو در این صفحه</h2>
+<input class="search" id="search" type="search" placeholder="مثلاً پرشین، تغذیه یا ظرف خاک..." aria-label="جست‌وجو">
+<p id="result" aria-live="polite">برای پیدا کردن موضوع، جست‌وجو کن.</p>
+</section>
 
-      <input type="text" id="searchCat" onkeyup="filterCatTable()" placeholder="🔍 جستجوی نژاد (مثلا: پرشین، سیامی...)" style="width: 100%; margin-bottom: 20px;">
+<section id="contact" class="contact">
+<h2 class="section-title">📩 ارتباط با ما</h2>
+<div class="card">
+<p>پیشنهاد، سؤال یا نظری دربارهٔ سایت داری؟ خوشحال می‌شویم پیام بدهی.</p>
+<p>📧 ایمیل: <a href="mailto:ehsanahmadi2414@gmail.com">ehsanahmadi2414@gmail.com</a></p>
+<p><a class="primary" href="mailto:ehsanahmadi2414@gmail.com?subject=پیام%20به%20دنیای%20سگ%20و%20گربه">ارسال ایمیل</a></p>
+</div>
+</section>
+</main>
 
-      <h3>گربه پرشین 🐱</h3>
-      <p>پرشین به موهای بلند و ظاهر پشمالو معروف است. موهای این گربه معمولاً به برس کشیدن منظم نیاز دارد.</p>
+<footer>
+<p>🐱 دنیای گربه‌ها — بخشی از سایت دنیای سگ و گربه</p>
+<a href="index.html">بازگشت به صفحهٔ اصلی</a> ·
+<a href="dogs.html">رفتن به صفحهٔ سگ‌ها</a>
+</footer>
 
-      <h3>گربه سیامی 🐾</h3>
-      <p>گربه سیامی به ظاهر خاص، چشم‌های آبی و ارتباط زیاد با انسان‌ها معروف است.</p>
-
-      <h3>گربه بریتیش 🐈</h3>
-      <p>گربه بریتیش معمولاً بدنی قوی، چهره‌ای گرد و موهایی نرم و کوتاه دارد.</p>
-
-      <h3>گربه اسکاتیش فولد 👂</h3>
-      <p>بعضی گربه‌های اسکاتیش فولد گوش‌هایی دارند که به سمت جلو خم شده‌اند.</p>
-
-      <h3>جدول خلاصه ویژگی نژادها 📊</h3>
-      <div class="table-container">
-        <table id="catTable">
-          <thead>
-            <tr>
-              <th>نژاد</th>
-              <th>اندازه مو</th>
-              <th>میزان فعالیت</th>
-              <th>نیازمند برس‌کشیدن</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>پرشین</td>
-              <td>بلند</td>
-              <td>آرام</td>
-              <td>روزانه</td>
-            </tr>
-            <tr>
-              <td>سیامی</td>
-              <td>کوتاه</td>
-              <td>خیلی زیاد</td>
-              <td>کم</td>
-            </tr>
-            <tr>
-              <td>بریتیش</td>
-              <td>کوتاه / متوسط</td>
-              <td>متوسط</td>
-              <td>هفتگی</td>
-            </tr>
-            <tr>
-              <td>اسکاتیش فولد</td>
-              <td>کوتاه / متوسط</td>
-              <td>متوسط</td>
-              <td>هفتگی</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="card" id="care">
-      <h2>راهنمای نگهداری از گربه‌ها 🏠</h2>
-      <p>نگهداری از گربه شامل فراهم کردن جای امن، ظرف خاک تمیز، غذای مناسب، بازی روزانه و مراقبت دامپزشکی است.</p>
-    </div>
-
-    <div class="card" id="food">
-      <h2>راهنمای غذا دادن به گربه‌ها 🍲</h2>
-      <p>غذای گربه باید شامل پروتئین‌های باکیفیت باشد.</p>
-      <h3>غذاهای ممنوعه و خطرناک 🛑</h3>
-      <ul>
-        <li>🧅 <strong>پیاز و سیر:</strong> سلول‌های قرمز خون گربه را تخریب می‌کنند.</li>
-        <li>🍫 <strong>شکلات و کاکائو:</strong> حاوی مواد سمی برای قلب گربه.</li>
-        <li>🥛 <strong>شیر گاو (برای اکثر گربه‌های بالغ):</strong> به دلیل عدم هضم لاکتوز باعث مشکلات گوارشی می‌شود.</li>
-      </ul>
-    </div>
-
-    <div class="card" id="contact">
-      <h2>ارسال نظر یا سؤال درباره گربه‌ها ✉️</h2>
-      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="نام شما" required>
-        <input type="email" name="email" placeholder="ایمیل شما" required>
-        <textarea name="message" rows="4" placeholder="نظر یا سؤال شما..." required></textarea>
-        <button type="submit">ارسال پیام</button>
-      </form>
-    </div>
-
-  </main>
-
-  <a href="#top" class="back-to-top">↑</a>
-
-  <footer>
-    <p>© دنیای گربه‌ها | ساخته‌شده برای دوستداران گربه‌ها 🐾</p>
-  </footer>
-
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-
-    function calculateCatAge() {
-      const age = document.getElementById('catAge').value;
-      const result = document.getElementById('catAgeResult');
-      if (age > 0) {
-        let humanAge = age == 1 ? 15 : age == 2 ? 24 : 24 + (age - 2) * 4;
-        result.innerText = `سن گربه شما معادل تقریباً ${humanAge} سال انسانی است! 🐈`;
-      } else {
-        result.innerText = "لطفاً یک عدد معتبر وارد کنید.";
-      }
-    }
-
-    function filterCatTable() {
-      const input = document.getElementById("searchCat").value.toUpperCase();
-      const trs = document.getElementById("catTable").getElementsByTagName("tr");
-      for (let i = 1; i < trs.length; i++) {
-        const td = trs[i].getElementsByTagName("td")[0];
-        if (td) {
-          trs[i].style.display = td.innerText.toUpperCase().indexOf(input) > -1 ? "" : "none";
-        }
-      }
-    }
-  </script>
-
+<script>
+const darkBtn=document.getElementById('darkBtn');
+if(localStorage.getItem('petSiteDark')==='yes')document.body.classList.add('dark');
+function updateButton(){
+  darkBtn.textContent=document.body.classList.contains('dark')?'☀️ حالت روز':'🌙 حالت شب';
+}
+updateButton();
+darkBtn.addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+  localStorage.setItem('petSiteDark',document.body.classList.contains('dark')?'yes':'no');
+  updateButton();
+});
+const search=document.getElementById('search');
+const result=document.getElementById('result');
+const cards=[...document.querySelectorAll('.searchable')];
+search.addEventListener('input',()=>{
+  const q=search.value.trim().toLocaleLowerCase('fa');
+  let count=0;
+  cards.forEach(c=>{
+    const match=c.textContent.toLocaleLowerCase('fa').includes(q);
+    c.classList.toggle('hidden',!!q&&!match);
+    if(!q||match)count++;
+  });
+  result.textContent=q?(count?`${count} بخش مرتبط پیدا شد.`:'موردی پیدا نشد؛ عبارت دیگری را امتحان کن.'):'برای پیدا کردن موضوع، جست‌وجو کن.';
+});
+</script>
 </body>
 </html>
